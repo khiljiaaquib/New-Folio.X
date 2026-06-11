@@ -63,7 +63,7 @@
 <br>
     <div class="payment">
     <div class="paymentbox">
-        <form method="post" class="needs-validation pay"  action="/Services">
+        <form method="post" class="needs-validation pay"  action={{url_for('services')}}>
                {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
         {% for category, message in messages %}
