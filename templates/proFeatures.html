@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folio.X Pro Features — Executive Suite</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F3E0A6;
+            --gold-dark: #A98626;
+            --bg: #050505;
+            --card: rgba(14, 14, 14, 0.6);
+            --border: rgba(212, 175, 55, 0.15);
+            --border-hover: rgba(212, 175, 55, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 50% -20%, #16120a 0%, var(--bg) 70%);
+            color: #E5E5E5;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        /* PREMIUM NAVBAR */
+        .navbar {
+            width: 90%;
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 18px 45px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFF;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #999;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .pro-btn {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: #000;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            text-decoration: none;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .pro-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: var(--gold-light);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4.2rem;
+            line-height: 1.1;
+            font-weight: 500;
+            color: #FFF;
+            background: linear-gradient(180deg, #FFF 40%, #CCC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .hero p {
+            margin-top: 25px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #A0A0A0;
+            max-width: 540px;
+        }
+
+        .hero-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 16px 38px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: black;
+            box-shadow: 0 10px 25px rgba(212,175,55,0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(212,175,55,0.25);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: #FFF;
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+            z-index: -1;
+            top: 10%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            transition: border-color 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            border-color: rgba(212, 175, 55, 0.35);
+        }
+
+        /* LOGICAL STATS / COUNTERS */
+        .stats {
+            max-width: 1300px;
+            margin: 0px auto 80px;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 40px 200px;
+            border-radius: 24px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin:0px 200px 0px 0px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .counter-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            font-family: 'Cinzel', serif;
+        }
+
+        .counter {
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #FFF;
+            background: linear-gradient(135deg, #FFF, var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .counter-suffix {
+            font-size: 2.2rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-left: 2px;
+        }
+
+        .stat-title {
+            margin-top: 12px;
+            color: #888;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        /* FEATURE MATRIX (6 CARDS NOW) */
+        .features {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 5%;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            font-size: 3.2rem;
+            color: #FFF;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .section-title span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 70px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 45px 35px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 0 30px rgba(212,175,55,0.05);
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212,175,55,0.06);
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            border: 1px solid rgba(212,175,55,0.15);
+        }
+
+        .feature-card h3 {
+            color: #FFF;
+            font-size: 1.25rem;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-card p {
+            color: #8C8C8C;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* CORE SHOWCASE WORKSPACE */
+        .showcase {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .showcase-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .showcase-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .showcase-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ELITE CTA SECTION */
+        .cta {
+            max-width: 1100px;
+            margin: 80px auto 120px;
+            padding: 90px 4%;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, rgba(30, 25, 15, 0.4) 0%, rgba(10,10,10,0.9) 100%);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            position: relative;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+        }
+
+        .cta h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: #FFF;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: auto;
+            color: #999;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .cta-btn {
+            margin-top: 40px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            border: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            color: #000;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.25);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(212,175,55,0.4);
+            filter: brightness(1.1);
+        }
+
+        /* RESPONSIVE LAYOUT BREAKPOINTS */
+        @media(max-width: 1024px) {
+            .hero, .showcase {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+            .hero h1 { font-size: 3.4rem; }
+            .hero p { margin: 25px auto 0; }
+            .hero-buttons { justify-content: center; }
+            .stats { grid-template-columns: repeat(3, 1fr); }
+            .section-title { font-size: 2.6rem; }
+        }
+
+        @media(max-width: 768px) {
+            .stats { grid-template-columns: 1fr; gap: 20px; }
+            .navbar { padding: 15px 30px; }
+            .nav-links { display: none; }
+            .cta h2 { font-size: 2.5rem; }
+        }
+    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/header.css">
+  <link rel="stylesheet" href="./static/css/premium.css">
+  <link rel="stylesheet" href="./static/css/companies.css">
+  <link rel="stylesheet" href="./static/css/zyra.css">
+
+</head>
+<body>
+<div class="premium-nav-container">
+    <header class="premium-navbar header1">
+      <a href="/About" class="logo">Folio<span>.X</span></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="/Executive" >Select Companies</a></li>
+        <li class="nav-item"><a href="/Features_pro" class="active">Features</a></li>
+        <li class="nav-item"><a href="{{portfolio}}">About US</a></li>
+        <li class="nav-item"><a href="/Logout">Logout</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a class="btn-elite" style="padding: 10px 20px; font-size: 11px;" href="/Essential">Essential</a>
+      </div>
+    </header>
+     <header class="premium-navbar header2">
+      <a href="/About" class="logo">Folio<span>.X</span></a>
+      <span class="material-symbols-outlined hamburger">menu</span>
+    </header>
+    <div class="sbm displaysbm">
+<ul class="nav-menu" style="display:block;">
+        <li class="nav-item" ><a href="/Executive" >Select Companies</a></li>
+        <li class="nav-item"><a href="/Features_pro" class="active">Features</a></li>
+        <li class="nav-item"><a href="{{portfolio}}">About US</a></li>
+        <li class="nav-item"><a href="/Logout">Logout</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a class="btn-elite" style="padding: 10px 20px; font-size: 11px;" href="/Essential">Essential</a>
+      </div>
+    </div>
+  </div>
+            <br><br><br>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">✦ Folio.X Executive Tier</div>
+            <h1>Engineered For The <span>Executive Elite.</span></h1>
+            <p>
+                Build enterprise-aligned resumes targeted at top institutions, driven by Zyra AI orchestration and strict real-time ATS scoring matrices.
+            </p>
+            
+        </div>
+        <div class="hero-image">
+            <img src="./static/css/Foliopro.png" alt="Folio.X Premium Dashboard Console View">
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <div class="counter-wrapper">
+                <div class="counter" data-target="100">0</div>
+                <div class="counter-suffix">+</div>
+            </div>
+            <div class="stat-title">Target Companies</div>
+        </div>
+        <div class="stat-card">
+            <div class="counter-wrapper">
+                <div class="counter" data-target="95">0</div>
+                <div class="counter-suffix">%</div>
+            </div>
+            <div class="stat-title">ATS Parsing Accuracy</div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Core <span>Capabilities</span></h2>
+        <p class="section-subtitle">A high-fidelity framework tailored explicitly for modern deployment channels.</p>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👁️</div>
+                <h3>ATS Engine Core</h3>
+                <p>Calculates strict layout parsing integrity, targeting direct recursive recruiter benchmarks.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3>ATS Optimized Templates</h3>
+                <p>Pre-formatted elite typography hierarchies designed to glide seamlessly through automated institutional filters.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Zyra AI Assistant</h3>
+                <p>An integrated contextual engine giving granular real-time feedback on your metrics and growth.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✍️</div>
+                <h3>AI Summary Generator</h3>
+                <p>Synthesize raw historical career milestones into punchy, high-impact executive summaries automatically.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Live Sync Canvas</h3>
+                <p>Observe system-wide styling mutations instantly inside the workspace interface layout.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Vector Export</h3>
+                <p>Instantly map schemas to compile publication-ready production PDF payloads seamlessly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase">
+             <div class="showcase-wrapper">
+            <img src="./static/css/FolioPro.png" alt="Target Matrix Layout Screen Interface">
+        </div>
+        <div class="showcase-wrapper">
+            <img src="./static/css/FolioResume.png" alt="Dynamic Builder Preview UI Area">
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Accelerate Your Pipeline</h2>
+        <p>
+            Equip your portfolio layer with custom organizational structures and strategic system assets today.
+        </p>
+        <button class="cta-btn"><a href="/Executive" style="color:black;text-decoration:none;">Executive Tier</a></button>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".counter");
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute("data-target"), 10);
+                let current = 0;
+                
+                const duration = 1200; 
+                const frameRate = 1000 / 60; 
+                const totalFrames = Math.round(duration / frameRate);
+                const increment = target / totalFrames;
+
+                const stepAnimate = () => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.innerText = target;
+                    } else {
+                        counter.innerText = Math.floor(current);
+                        requestAnimationFrame(stepAnimate);
+                    }
+                };
+                
+                requestAnimationFrame(stepAnimate);
+            });
+        });
+    </script>
+</body>
+</html>

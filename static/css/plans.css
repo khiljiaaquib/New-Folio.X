@@ -1,0 +1,241 @@
+.pf{
+    text-align: center;
+    font-family:serif;
+    font-size: 50px ;
+    padding-top:10px;
+    text-shadow: 0px 0px 40px goldenrod;
+    background: linear-gradient(to right, #AE8625 0%, #F7EF8A 25% , #D2AC47 50% , #EDC967 75% ) ; 
+    margin: 0px ;
+    -webkit-background-clip: text;
+    background-clip: text ;
+    -webkit-text-fill-color: transparent ;
+    color: transparent ;
+}
+.plans sup .fa-crown{
+    font-size: 30px;
+    position: relative;
+    top: -10px;
+    left: 15px;
+    transform: rotateZ(-45deg);
+    animation: crown 2s ease-in 1;
+}
+body{
+    background-color: black;
+    overflow-x:hidden;
+}
+.pfhr{
+ position: relative;
+ right:10px;
+ bottom:50px;   
+font-size:50px !important ; 
+font-weight:900px;
+}
+.pfp{
+    position: relative;
+    bottom: 40px;
+    text-align: center;
+    color: white !important; 
+    font-size: medium !important;
+    font-weight: 300 !important;
+    text-shadow: 2px 2px 4px white;
+}
+.plans {
+    background-color: black;
+    width: 100%; 
+    text-align: center;
+}
+.card{
+    display:flex !important;
+    flex-direction: row !important;
+    flex-wrap:nowrap;
+    width:100vw;
+    justify-content: center;
+    flex-direction: row;
+    background-color: black !important;
+    position: relative;
+    bottom: 50px;
+}
+.essential{
+    border-top: 10px rgb(0, 110, 255) solid!important;
+} 
+.pro,.essential{
+    width: 40vw;
+    height:auto;
+    border: 2px solid black;
+    margin: 40px;
+    padding-bottom:30px ;
+    border-radius: 20px !important;
+    background-color: rgba(39, 41, 79, 0.778) !important;
+    transition:1s;
+    border-top-right-radius:40px !important;
+    border-top-left-radius:40px !important;
+}
+.pro{
+    border-top: 10px goldenrod solid!important;
+}
+
+.essential:hover{
+     box-shadow: 4px 4px 30px rgb(0, 110, 255) , 
+    -4px -4px 30px rgb(0, 110, 255) ;
+     transform: scale(1.1);
+}
+.pro:hover{
+       box-shadow: 4px 4px 30px goldenrod,
+    -4px -4px 30px goldenrod;
+     transform: scale(1.1);
+}
+.intro{
+    padding-top: 20px;
+    padding-bottom:50px ;
+}
+.ic{
+font-family: serif;     color: rgb(0, 110, 255);
+text-shadow: 0px 0px 30px rgb(0, 110, 255);
+}
+.icp{
+    font-family: serif;     color: goldenrod;
+     text-shadow: 0px 0px 30px goldenrod;
+}
+.icp,.ic{
+    font-size: 50px;
+    font-weight: bolder;
+
+}
+.fa-gem,.intro .fa-crown{
+    font-size: 50px;
+    border-radius:50%;
+    height: 70px;
+    width:70px ;
+    border: solid 4px rgb(0,0,0);
+    padding-top:10px;
+}
+.fa-check{
+    color:green; 
+}
+.info-ess h6 , .info-pro h6{
+    color: white !important;
+    text-shadow: 0px 0px 30px white;
+    font-size: 20px;
+}
+.intro p {
+color: white; 
+    font-family: serif;
+     text-shadow: 0px 0px 30px white;
+     text-decoration: underline;
+     font-size: 40px;
+}
+.fa-xmark{
+    color:rgb(117, 115, 115); 
+    
+} 
+.info-ess button:hover , .info-pro button:hover {
+    background-position: 100%;
+    color: black;
+}
+.info-ess button , .info-pro button , .prof button {
+    margin-top: 20px;
+    color: rgb(0, 110, 255);
+    font-size:30px;
+    font-family: serif;
+    font-weight: bolder;
+    height: 60px;
+    width: 300px;
+    padding-bottom: 15px;
+    border: 2px solid white;
+    border-radius:10px !important;
+    background: linear-gradient(120deg , rgba(255, 255, 255, 0.36) 50% ,  rgb(0, 110, 255) 50%) ; 
+    background-position:0% center;
+    background-size: 250%;
+    border: 1px solid rgba(255, 255, 255,0.18);
+    box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+    backdrop-filter:blur(10px);
+    transition: background-position 2s , color 3s ;
+}
+.info-pro button {
+    color: goldenrod;
+    background: linear-gradient(120deg , rgba(255, 255, 255, 0.36) 50% , goldenrod 50%) ; 
+background-position:0% center;
+    background-size: 250%;
+}
+.prof button{
+    width: 250px !important;
+    position: relative !important;
+    left: 40px !important;
+    border-radius: 5px 20px 5px 20px !important;
+}
+.zyra{
+    position: absolute;
+    top: 200px;
+    height:330px;
+    width:350px;
+    left:37vw;
+    box-shadow:0px 0px 60px goldenrod;
+    color: white;
+    padding: 35px;
+    border: 2px solid goldenrod;
+    border-radius: 30px;
+    font-family: serif;
+    backdrop-filter: blur(20px);
+    /* display:none; */
+}
+.zyra button{
+    height: 40px;
+    width: 80px;
+    background-image: linear-gradient(to right , 
+    #AE8625 0%, 
+    #F7EF8A 25% , 
+    #D2AC47 50% , 
+    #EDC967 75% ) ;
+    border-radius: 5px;
+    font-size: 22px !important;
+    color: black;
+    transition:0.5s;
+    border: 2px solid black;
+}
+.zyra button:hover{
+    box-shadow:4px 4px 40px goldenrod;
+}
+.zyra h3{
+    color:goldenrod;
+    text-shadow:0px 0px 60px goldenrod;
+    padding:0px 0px 0px 0px;
+}
+.zyra h5{
+    font-size:16px !important;
+    padding:0px 0px 20px 0px;
+}
+.zyracheck:checked~.zyra{
+    display: block;
+}
+.zyracheck{
+    display: none;
+}
+.zyracheck:checked~.card{
+    filter: blur(20px);
+}
+.fa-brain{
+font-size: 50px;
+text-shadow:0px 0px 60px goldenrod;
+  background: linear-gradient(to right, 
+    #AE8645 0%, 
+    goldenrod 25% , 
+    #D2AC67 50% , 
+    goldenrod 75% ) ;
+    -webkit-background-clip: text ;
+    background-clip: text ;
+    -webkit-text-fill-color: transparent ;
+    color: transparent ;;
+margin: 10px;
+}
+@keyframes crown{
+    from{
+        position: relative;
+        top: -40px;
+        transform: rotateZ(0deg);
+    }
+    to{
+         position: relative;
+         top:-10px;
+        transform: rotateZ(-45deg);
+    }
+}

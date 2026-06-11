@@ -1,0 +1,526 @@
+/* ==========================================================================
+   1. GLOBAL APPLICATIONS SETTINGS & UNIFORM DARK GREY THEME
+   ========================================================================== */
+:root {
+  --primary: #6366f1;          
+  --primary-hover: #4f46e5;
+  --success: #10b981;          
+  --success-hover: #059669;
+  --bg-app: #1e293b;           /* Pure Dark Grey/Slate Page Background */
+  --card-bg: #0f172a;          /* Slightly Deeper Dark Slate for Panels */
+  --text-dark: #f8fafc;        
+  --text-gray: #94a3b8;        
+  --border: #334155;           
+  --radius-btn: 12px;          
+}
+
+body {
+  background-color: var(--bg-app);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+.hone {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  letter-spacing: -0.02em;
+}
+
+.progress {
+  width: 100%;
+  max-width: 500px;
+  height: 6px;
+  background-color: #334155;
+  margin: 0 auto 35px auto;
+  border-radius: 50px;
+}
+
+.complete-ess {
+  max-width: 1650px;
+  margin: 0 auto;
+  padding: 0 25px 40px 25px;
+}
+
+.ess {
+  display: flex;
+  gap: 35px;
+  align-items: flex-start;
+}
+
+/* ==========================================================================
+   2. PER-ELEMENT INPUT CONTROL (बिना किसी DIV रैपर के सीधा एलिमेंट फिक्स)
+   ========================================================================== */
+.fo {
+  flex: 1;
+  background: var(--card-bg);
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  max-height:110vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.fo label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-gray);
+  margin-top: 16px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- BASE CLASS FOR ALL INPUTS --- */
+.res-inp {
+  width: 100%; /* Default 100% चौड़ाई (जैसे Address, Summary, Descriptions के लिए) */
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background-color: #1e293b; /* Pure Grey Theme Match */
+  color: #ffffff;
+  transition: all 0.25s ease;
+  box-sizing: border-box; /* पैडिंग से विड्थ खराब नहीं होगी */
+  display: block;
+}
+
+.res-inp:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+/* --- DIRECT ELEMENT SIZE MODIFIERS --- */
+/* जहाँ छोटी साइज चाहिए, सीधे input टैग पर यह क्लास डाल दो */
+input.res-inp.inp-small {
+  width: calc(50% - 8px); /* परफेक्ट आधी चौड़ाई */
+  display: inline-block;  /* एक लाइन में दो लाने के लिए */
+  margin-right: 8px;
+}
+
+/* सबसे छोटी साइज (जैसे ZIP Code, CGPA, Dates के लिए) */
+input.res-inp.inp-tiny {
+  width: calc(33.33% - 8px); /* एक तिहाई चौड़ाई */
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* टेक्स्टएरिया हमेशा पूरे ब्लॉक में नीचे तक खुलेगा */
+textarea.res-inp {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  display: block;
+}
+
+/* Responsive Reset: मोबाइल पर सब 100% हो जाएंगे */
+@media (max-width: 768px) {
+  input.res-inp.inp-small, 
+  input.res-inp.inp-tiny {
+    width: 100% !important;
+    display: block !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Display Toggles Controlled by JavaScript */
+.personal_info, .edu_rev, .work_rev, .project_rev, .skl_rev {
+  display: none;
+}
+
+.personal_info.active-section, 
+.edu_rev.active-section, 
+.work_rev.active-section, 
+.project_rev.active-section, 
+.skl_rev.active-section {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.personal_info {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.ess-info h4 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.ess-info hr {
+  border: 0;
+  border-top: 2px solid var(--border);
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   3. SHINY FLASH BUTTONS & BOTTOM STEPS NAVIGATION
+   ========================================================================== */
+button {
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-btn);
+  position: relative;
+  overflow: hidden; 
+  transition: all 0.3s ease;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25px);
+}
+
+button:hover::after {
+  animation: flashEffect 0.8s ease-in-out;
+}
+
+@keyframes flashEffect {
+  100% { left: 150%; }
+}
+
+.edu-button, .work-button, .project-button, .tech-button, .soft-button, .lan-button, .hobby-button, .vol-button {
+  background-color: rgba(99, 102, 241, 0.08);
+  color: #a5b4fc;
+  border: 1px dashed rgba(165, 180, 252, 0.4);
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.edu-button:hover, .work-button:hover, .project-button:hover, .tech-button:hover, .soft-button:hover, .lan-button:hover, .hobby-button:hover, .vol-button:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-style: solid;
+}
+
+.btn-nav-group {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; 
+  padding-top: 30px;
+  width: 100%;
+}
+
+.edu_reveal, .work_reveal, .project_reveal, .skl_reveal {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  padding: 13px 28px;
+  font-size: 0.95rem;
+  margin-left: auto; 
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.edu_reveal:hover, .work_reveal:hover, .project_reveal:hover, .skl_reveal:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(99, 102, 241, 0.45);
+}
+
+.ess_reveal, 
+.edu_rev .ess_reveal, 
+.work_rev .edu_reveal, 
+.project_rev .work_reveal, 
+.skl_rev .project_reveal {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+  padding: 13px 28px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ess_reveal:hover, 
+.edu_rev .ess_reveal:hover, 
+.work_rev .edu_reveal:hover, 
+.project_rev .work_reveal:hover, 
+.skl_rev .project_reveal:hover {
+  background-color: #334155 !important;
+  border-color: #475569 !important;
+  transform: translateY(-2px);
+}
+
+.pdfBtn {
+  background-color: var(--success);
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-top: 30px;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.pdfBtn:hover {
+  background-color: var(--success-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.5);
+}
+
+/* ==========================================================================
+   4. LIVE PREVIEW WRAPPER CARD
+   ========================================================================== */
+.Live {
+  flex:1;
+  background: var(--card-bg);
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  max-height: 82vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  position: sticky;
+  top: 110px;
+}
+
+.fo::-webkit-scrollbar, .Live::-webkit-scrollbar {
+  width: 7px;
+}
+.fo::-webkit-scrollbar-thumb, .Live::-webkit-scrollbar-thumb {
+  background-color: #334155;
+  border-radius: 20px;
+}
+
+#template-div {
+  background: #1e293b;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Templates {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: #ffffff;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+/* Templates css */
+.prev-inf{
+    /* width: 80vw; */
+margin:100px 10px;
+border: 4px solid white;
+background-color: white;
+border-radius: 30px;
+color: black;
+padding: 40px 4px 100px 4px;
+font-family:'Times New Roman', Times, serif;
+top:140px;
+}
+.prev-inf div , .prev-inf span{
+margin: 10px;
+/* font-size: 100em; */
+}
+.center{
+    text-align: center;
+}
+/* 2nd template */
+.fa{
+    color:blue ; 
+}
+.headings , .smry{
+    display:none;
+    background-color:#e2e8f1 ; 
+    margin:30px 0px 20px 0px ;
+    box-shadow:-2px 2px 5px #bebcbc;
+    padding:5px;
+}
+
+.left-inside{
+     border:0px solid black ;
+     padding:30px 4px 30px 8px ;
+    height: inherit;
+     border-radius:30px 0px 0px 0px ;
+      border-right:0px;
+      background-image:linear-gradient(to bottom,#eef3fb 30%,#eef2fb 35%,   #eceefb 30% , #eceffb 30%);
+       box-shadow: -5px 5px 10px #d1d1d1;
+}
+.right{
+    width:70% !important ; 
+    margin-left:0px ;
+     border:0px solid black ;
+     padding:10px 10px 10px 20px ;
+     border-left:0px;
+     background-color: #fefefe;
+}
+.left{
+    width:40%; 
+    margin-left:0px ;
+    height: inherit;
+    border: 0px;
+    border-color: black;
+    border-style: solid;
+     padding:10px 0px 10px 10px ;
+     background-color:#f9f9fb;
+}
+.lan-vol-hob{
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+}
+.prev-inf2{
+margin:100px 10px;
+border: 4px solid white;
+background-color: white;
+border-radius: 30px;
+padding: 40px 4px 100px 4px;
+}
+.fa{
+    color:blue ; 
+}
+.lr{
+    display:flex ;
+     flex-wrap:nowrap; 
+     flex-direction: row;
+     padding:20px 5px ;
+     background-color:white;
+     color: black;
+     /* width: 100%; */
+}
+/* ==========================================================================
+   RESUME BREATHING ROOM & SPACING MODIFICATIONS (No Layout Changes)
+   ========================================================================== */
+
+/* 1. Sections ke beech me gap (Profile, Education, Experience, Projects) */
+.prev-inf2 .right > div, 
+.prev-inf2 .left-inside > div,
+.prev-inf2 .resume-section {
+  margin-bottom: 40px !important; /* Har bade section ke baad 40px ka solid gap */
+}
+
+/* 2. Headings ke niche thoda aur space */
+.prev-inf2 h2, 
+.prev-inf2 .headings h2 {
+  margin-top: 0 !important;
+  margin-bottom: 20px !important; /* Heading aur uske andar ke text me gap */
+  padding-bottom: 8px !important;
+}
+
+/* 3. Text Lines ke beech me air-gap (Line Height) */
+.prev-inf2 p, 
+.prev-inf2 .summary\!\!, 
+.prev-inf2 div[class*="workdesc"]\!\!, 
+.prev-inf2 div[class*="projectdesc"]\!\! {
+  line-height: 1.65 !important;    /* Letters ke upar-niche space badhane ke liye */
+  margin-bottom: 15px !important;   /* Paragraph khatam hone pr gap */
+  letter-spacing: 0.01em !important;
+}
+
+/* 4. Multiple Companies ya Education entry ke beech me spacing */
+.prev-inf2 .entry-row-tr,
+.prev-inf2 .item-row-header {
+  margin-top: 25px !important;     /* Agar 2 companies hain toh unke beech me gap */
+  margin-bottom: 8px !important;
+}
+
+/* 5. Bullet points ke beech me individual spacing */
+.prev-inf2 ul li {
+  margin-bottom: 8px !important;   /* Har ek bullet point ke baad thoda gap */
+}
+
+.prev-inf2 .lan-vol-hob {
+  gap: 40px !important;           
+  margin-top: 50px !important;   }
+
+.prev-inf2 .lan-vol-hob h3 {
+  margin-bottom: 12px !important; 
+}
+
+.prev-inf2 .lan-vol-hob li,
+.prev-inf2 .lan-vol-hob p {
+  line-height: 1.6 !important;    
+}
+
+@media (max-width: 1100px) {
+  .ess { flex-direction: column; }
+  .fo, .Live { max-height: none; width: 100%; flex: none; }
+  .Live { position: static; }
+}
+.name_label , .job_label , .email_label  , .phone_label{
+    width:49%;
+}
+.name_job , .email_phone  {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pprogress{
+    text-align: center !important;
+    margin-bottom:40px;
+    font-size: 18px;
+    font-weight: 900;
+}
+.space,.PIspace,.WEspace,.PRspace,.EDspace{
+    background-image: linear-gradient(120deg ,tomato 50% , white 50%);
+    font-size: 2px;
+    margin:10px;
+    padding:0px 5vw;
+    background-position:100%;
+    background-size:250%;
+}
+span{
+    transition:background-position 3s ,color 1s 1.2s;
+}
+span:nth-child(1){
+    color: #236CFF;
+}
+.progress{
+    background-color:rgb(130, 134, 132);
+}
+@media print {  
+    body.print-mode-active * {
+        visibility: hidden;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    .print-this-only, .print-this-only * {
+        visibility: visible !important;
+    }
+    .print-this-only {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    @page {
+        size: auto;   
+        margin: 0mm;  
+    }
+}

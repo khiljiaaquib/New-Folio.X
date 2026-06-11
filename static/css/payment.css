@@ -1,0 +1,305 @@
+/* ==========================================================================
+   1. Global Resets & Typography Base
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: #05070c;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.08) 0px, transparent 50%);
+  color: #f3f4f6;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. Ultra-Premium Card Container (Glassmorphism)
+   ========================================================================== */
+.payment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  width: 100%;
+}
+
+.paymentbox {
+  background: rgba(17, 24, 39, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 45px;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  overflow: hidden;
+  /* Deep, layered premium shadow with a subtle neon underlying glow */
+  box-shadow: 
+    0 0 1px rgba(255, 255, 255, 0.1) inset,
+    0 10px 30px -10px rgba(0, 0, 0, 0.7),
+    0 20px 40px -15px rgba(0, 0, 0, 0.5),
+    0 0 50px -10px rgba(37, 99, 235, 0.15);
+}
+
+/* Subtle reflection line at the top edge */
+.paymentbox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  z-index: 3;
+}
+
+/* Credit Card Chip Styling */
+.paymentbox .chip {
+  position: absolute;
+  top: 35px;
+  right: 45px;
+  width: 48px;
+  height: auto;
+  opacity: 0.85;
+  filter: saturate(1.2) contrast(1.1);
+  border-radius: 6px;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Futuristic background map grid */
+.paymentbox .map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.02;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pay {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   3. Premium Typography & Form Inputs
+   ========================================================================== */
+.details h4 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.name, .Phone {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 16px 18px;
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: rgba(37, 99, 235, 0.8);
+  box-shadow: 
+    0 0 0 1px rgba(37, 99, 235, 0.8),
+    0 0 20px -5px rgba(37, 99, 235, 0.4);
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+.form-control::placeholder {
+  color: #475569;
+}
+
+.apps {
+  margin: 36px 0px;
+
+}
+
+.apps > label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+}
+
+.apps > span {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:20px;
+  margin-bottom: 28px;
+
+}
+
+.apps span span {
+  position: relative;
+}
+
+.apps label[for="phonePay"],
+.apps label[for="payTm"],
+.apps label[for="googlePay"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+  cursor: pointer;
+  height: 68px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 20px;
+}
+
+.apps img {
+  max-width: 90%;
+  max-height: 28px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(140%); /* Elegant uniform silver logos default */
+  opacity: 0.6;
+  transition: all 0.25s ease;
+}
+
+.apps label[for="phonePay"] img[src*="googleusercontent"] {
+  display: none; 
+}
+.apps label[for="phonePay"]::after {
+  font-weight: 600;
+  color: #94a3b8;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  transition: color 0.25s ease;
+}
+
+.radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.apps label:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgb(0, 110, 255)
+}
+.apps label:hover img {
+  opacity: 0.9;
+  filter: grayscale(30%) brightness(100%);
+}
+
+.radio:checked + label,
+span:has(.radio:checked) label {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 4px 20px -5px rgba(255, 255, 255, 0.15);
+}
+
+.radio:checked + label img,
+span:has(.radio:checked) label img {
+  filter: grayscale(0%) brightness(100%) !important; /* Full crisp color on select */
+  opacity: 1 !important;
+  transform: scale(1.04);
+}
+
+.radio:checked + label[for="phonePay"]::after,
+span:has(.radio:checked) label[for="phonePay"]::after {
+  color: #a855f7; /* Vibrant Purple accent on select */
+}
+
+.paybtn {
+  margin-top: 36px;
+}
+
+.paybtn .button {
+  width: 100%;
+  padding: 18px;
+  background: #ffffff;
+  color: #05070c;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.paybtn .button:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 25px -5px rgba(255, 255, 255, 0.25),
+    0 0 30px rgba(37, 99, 235, 0.2);
+}
+
+.paybtn .button:active {
+  transform: translateY(0);
+}
+.paybtn .button:hover {
+  background-color: rgb(66, 129, 212) ;
+}
+.error, .danger, .alert-danger {
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+.success, .alert-success {
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #86efac;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}

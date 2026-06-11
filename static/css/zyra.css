@@ -1,0 +1,240 @@
+.Zyra-AI, .ATS{
+    position: fixed;
+    left: 92vw;
+    z-index: 10;
+    bottom:10vh;
+}
+/* Icon ka outer container (circle shape aur alignment ke liye) */
+.Zyra-AI ,.ATS{
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(204, 164, 59, 0.15) 0%, rgba(20, 20, 27, 0.4) 100%);
+    border: 1px solid rgba(204, 164, 59, 0.3);
+    border-radius: 50%;
+    color: #cca43b; /* Premium Gold Accent */
+    font-size: 24px; /* Icon ki size */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* Glowing Effect */
+    box-shadow: 0 0 15px rgba(204, 164, 59, 0.2);
+    
+    /* Continuous AI Pulse Animation */
+    animation: aiPulse 2.5s infinite ease-in-out;
+}
+/* Hover karne par premium reaction */
+.Zyra-AI:hover {
+    color: #ffffff ;
+    background: #cca43b;
+    border-color: #e5b945;
+    box-shadow: 0 0 25px rgba(204, 164, 59, 0.6);
+    transform: scale(1.05) rotate(5deg);
+}
+
+/* AI Breathing/Pulse Animation Effect */
+@keyframes aiPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(204, 164, 59, 0.2);
+        border-color: rgba(204, 164, 59, 0.3);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 25px rgba(204, 164, 59, 0.45);
+        border-color: rgba(204, 164, 59, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(204, 164, 59, 0.2);
+        border-color: rgba(204, 164, 59, 0.3);
+    }
+}
+.zyra-interface {
+    width: 100%;
+    max-width: 420px;
+    background: #0d0d11;
+    border: 1px solid #22222a;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Header Area */
+.zyra-header {
+    padding: 24px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, #16161f 0%, #0d0d11 100%);
+    border-bottom: 1px solid #1c1c24;
+}
+
+.zyra-header h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.zyra-header h3 span {
+    color: #cca43b; /* Premium Gold Accent color */
+    text-shadow: 0 0 12px rgba(204, 164, 59, 0.3);
+}
+
+.zyra-header p {
+    color: #71717a;
+    font-size: 0.85rem;
+    margin: 4px 0 0 0;
+}
+
+/* Output / Chat Screen */
+.zyra-output {
+    flex: 1;
+    min-height: 300px;
+    max-height: 400px;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #09090b;
+}
+
+/* Chat Bubbles Styling (Optional but recommended) */
+.message {
+    padding: 10px 16px;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    max-width: 80%;
+    line-height: 1.4;
+}
+.message.bot {
+    background: #18181b;
+    color: #e4e4e7;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #27272a;
+}
+
+/* Input Wrapper */
+.zyra-input-wrapper {
+    padding: 16px;
+    background: #0d0d11;
+    border-top: 1px solid #1c1c24;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Text Input */
+.zyra-input-wrapper input {
+    flex: 1;
+    background: #14141b;
+    border: 1px solid #22222a;
+    padding: 12px 16px;
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.zyra-input-wrapper input:focus {
+    border-color: #cca43b;
+    box-shadow: 0 0 0 3px rgba(204, 164, 59, 0.15);
+}
+
+.zyra-input-wrapper input::placeholder {
+    color: #52525b;
+}
+
+/* Send Button */
+.zyra-input-wrapper button {
+    background: #cca43b;
+    color: #000000;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.zyra-input-wrapper button:hover {
+    background: #e5b945;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(204, 164, 59, 0.3);
+}
+
+.zyra-input-wrapper button:active {
+    transform: translateY(1px);
+}
+
+/* Custom Scrollbar for Chat Output */
+.zyra-output::-webkit-scrollbar {
+    width: 5px;
+}
+.zyra-output::-webkit-scrollbar-track {
+    background: transparent;
+}
+.zyra-output::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 10px;
+}
+.zyra-interface .xmark{
+    /* color: white; */
+    top: 2vh;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 1vh;
+    /* animation: aiPulse 2.5s infinite ease-in-out;
+    border: 2px solid goldenrod;
+    border-radius: 50%;
+    /* text-align: center; */
+    /* padding:4px 10px;/ */
+}
+.fa-xmark{
+    color: white;
+    font-size:15px;
+    cursor: pointer;
+    padding: 10px;
+}
+.zyra-interface{
+    position: fixed;
+    
+    right: 1vw;
+    bottom: 3.5vw;
+    z-index: 5;
+    transition: width 2s ,height 2s,opacity 4s;
+}
+.display{
+    width: 0vw;
+    height: -2vw;
+    opacity: 0;
+}
+.opacity{
+    opacity:0;
+}
+.userMessage{
+    background: linear-gradient(135deg, #cca43b 0%, #b38f2e 100%); /* Premium Gold Gradient */
+    color: #000000; /* Dark text for high contrast on gold */
+    align-self: flex-end; /* Message ko right side me push karne ke liye */
+    border-radius:10px 10px 0px 10px; /* Right corner sharp, baki rounded */
+    box-shadow: 0 4px 12px rgba(204, 164, 59, 0.2); /* Soft gold glow */
+padding: 10px 30px;
+}
+ @media screen and (max-width:750px){
+     .Zyra-AI{
+        position: fixed;
+        left:80vw;
+        bottom:40vh;
+     }
+    }

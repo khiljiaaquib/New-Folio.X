@@ -1,0 +1,50 @@
+span{
+    font-weight: 900;
+    font-size:50px;
+    color: white;
+}
+.container{
+    margin-left:43vw;
+    margin-top: 30vh;
+    /* border: 2px solid white; */
+    height: auto;
+    width:225px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+body{
+    background-color:black;
+}
+.slogan{
+    color: white;
+    font-size:15px;
+    font-family: 'Times New Roman', Times, serif;
+    opacity: 0;
+    transition: 2s;
+}
+.ring{
+height:40px;
+width: 40px;
+border: 5px solid; 
+border-image: linear-gradient(to bottom ,#236CFF,#4823FF,#9123FF)10;
+animation: rotate 2s ease-in infinite ;
+margin-left: 37%;
+margin-top: 8%;
+margin-bottom: 8%;
+transform: rotate(45deg);
+transition: 1s;
+opacity: 0;
+}
+@keyframes rotate {
+0%{
+    transform: rotate(0deg);
+}
+100%{
+    transform: rotate(360deg);
+}
+}
+button{
+opacity: 0;
+}
