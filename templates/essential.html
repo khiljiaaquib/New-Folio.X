@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/css/header.css">
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/essential.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+</head>
+<body>
+<div class="premium-nav-container">
+    <header class="premium-navbar header1">
+      <a href={{url_for('about')}} class="logo essen_logo">Folio<span>.X</span></a>
+      <ul class="nav-menu">
+      <li class="nav-item">
+            <a href={{url_for('about')}} class="a">Features_Essential</a>
+        </li>
+        <li class="nav-item">
+            <a href={{url_for('services')}} class="a">Plans</a>
+        </li>
+<li class="nav-item">
+            <a href="{{portfolio}}" class="a">About_US</a>
+        </li>
+        <li class="nav-item">
+            <a href={{url_for('Logout')}} class="a">Logout</a>
+        </li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 20px;">
+          <form action={{url_for('executive')}} method="">
+        <button class="button" style="padding: 10px 20px; font-size: 11px;">PRO ACCESS</button>
+          </form>
+      </div>
+    </header>
+<header class="premium-navbar header2">
+      <a href={{url_for('about')}} class="logo essen_logo">Folio<span>.X</span></a>
+      <span class="material-symbols-outlined hamburger">menu</span>
+    </header>
+    <div class="sbm displaysbm">
+<ul class="nav-menu" style="display:block;">
+         <li class="nav-item">
+            <a href={{url_for('about')}} class="a">Features_Essential</a>
+         </li>
+        <li class="nav-item">
+            <a href={{url_for('services')}} class="a">Plans</a>
+        </li>
+ <li class="nav-item">
+            <a href="{{portfolio}}" class="a">About_US</a>
+        </li>
+        <li class="nav-item">
+            <a href={{url_for('Logout')}} class="a">Logout</a>
+        </li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 20px;">
+               <a class="button" style="padding: 10px 20px; font-size: 11px; color:white;text-decoration:none;" href={{url_for('executive')}}>Executive</a>
+      </div>
+    </div>
+  </div>
+  <!-- nav bar complete  -->
+     <br> <br> <br> <br>  
+   <h1 class="hone">Build Your Resume</h1>
+   <div class="progress"></div>
+   <div class="pprogress">
+    <span class="">Personal Information</span><span class="space PIspace"></span><span class="PIword">Education</span><span class="space EDspace"></span><span class="EDword">Work Experience</span><span class="space WEspace"></span><span class="WEword">Projects</span><span class="space PRspace"></span><span class="PRword">Other Activities</span>
+   </div>
+  <div class="complete-ess">
+     
+<div class="ess">
+
+<div class="fo">
+
+    <form  method="get" action={{url_for('about')}} class="needs-validation info" novalidate id="formid">
+      <div class="personal_info">
+         <div class="ess-info ess_rev rev">
+         <h4>Personal Information</h4>
+    <hr>
+   <div class="name_job">
+     <div class="name_label">
+    <label for="name">Full Name:</label>
+    <input id="name" class="form-control res-inp name" name="name" type="text">
+    </div>
+    <div class="job_label">
+          <label for="job">Job Title:</label>
+    <input id="job" class="form-control res-inp job-title" name="job" type="text">
+    </div>
+   </div>
+ <div class="email_phone">
+  <div class="email_label">
+      <label for="email">Email:</label>
+    <input id="email" class="form-control res-inp" name="email" type="text">
+</div>
+ <div class="phone_label">
+      <label for="phone">Phone:</label>
+    <input id="phone" class="form-control res-inp" name="phone" type="number">
+</div>
+ </div>
+ <div>
+      <label for="address">Address:</label>
+    <input id="address" class="form-control res-inp" name="address" type="text">
+</div>
+ <div>
+      <label for="linkedIn">LinkedIn:</label>
+    <input id="linkedIn" class="form-control res-inp"  name="linkedIn" type="url">
+</div>
+ <div>
+      <label for="website">Website/portfolio:</label>
+    <input id="website" class="form-control res-inp" name="website" type="text">
+    
+</div>
+     <div>
+      <label for="summary">Professional Summary</label>
+    <input id="summary" class="form-control res-inp prof-summ" name="summary" type="text">
+</div>
+     <br>
+    <button class="edu_reveal next" type="button">Next&rightarrow;</button>
+
+       </div>
+       
+      </div>
+       <div class="edu_rev">
+        <div class="ess-info edu-info">
+         <h4>Education</h4>
+    <hr>
+    <div>
+    <label class="form-label" for="degree">Degree:</label>
+    <input class="form-control res-inp Degree Degree0 education" id="degree" name="degree" type="text">
+    </div>
+    <div>
+        <label for="institution">Institution:</label>
+    <input id="institution" class="form-control res-inp institution institution0 education" name="institution" type="text">
+    </div>
+    <div>
+          <label for="eduSD0">Start Date:</label>
+    <input id="eduSD0" class="form-control res-inp eduSD eduSD0 education" name="eduSD" type="date">
+    </div>
+    <div>
+      <label for="eduED0">End Date:</label>
+    <input id="eduED0" class="form-control res-inp eduED eduED0 education"   name="eduED" type="date">
+</div>
+<button class="edu-button" type="button">+ Education</button>
+ <button class="ess_reveal prev" type="button">&leftarrow;Previous</button>
+ <button class="work_reveal next" type="button">Next&rightarrow;</button>
+</div>
+       </div>
+<div class="work_rev">
+  <div class="ess-info work-info rev">
+       <h4>Work Experience</h4>
+    <hr>
+    <div>
+    <label class="form-label" for="workJob0">Job Title:</label>
+    <input class="form-control res-inp workJob workJob0 work_Experience" id="workJob0" name="workJob" type="text">
+    </div>
+    <div>
+        <label for="company0">Company:</label>
+    <input id="company0" class="form-control res-inp company company0 work_Experience" name="company" type="text">
+    </div>
+    <div>
+          <label for="workSD0">Start Date:</label>
+    <input id="workSD0" class="form-control res-inp workSD workSD0 work_Experience" name="workSD" type="date">
+    </div>
+    <div>
+      <label for="workED0">End Date:</label>
+    <input id="workED0" class="form-control res-inp workED workED0 work_Experience" name="workED" type="date">
+</div>
+ <div>
+      <label for="workdesc0">Description:</label>
+    <input id="workdesc0" class="form-control res-inp workdesc workdesc0 work_Experience" name="workDesc" type="text">
+</div>
+<button class="work-button" type="button">+ Work</button>
+<button class="edu_reveal prev" type="button">&leftarrow;Previous</button>
+<button class="project_reveal next" type="button">Next&rightarrow;</button>
+</div>
+</div>
+<div class="project_rev">
+  <div class="ess-info project-info rev">
+     <h4>Projects</h4>
+    <hr>
+    <div>
+    <label class="form-label" for="project_name0">Project Name:</label>
+    <input class="form-control res-inp project_name project_name0 project_exp" id="project_name0" name="projects" type="text">
+    </div>
+    <div>
+        <label for="tech0">Technology Used:</label>
+    <input id="tech0" class="form-control res-inp tech tech0 project_exp" name="technology" type="text">
+    </div>
+    <div>
+          <label for="projecturl0">Project(URL)</label>
+    <input id="projecturl0" class="form-control res-inp projecturl projecturl0 project_exp" name="projectURL" type="url">
+    </div>
+ <div>
+      <label for="projectdesc0">Description:</label>
+    <input id="projectdesc0" class="form-control res-inp projectdesc projectdesc0 project_exp" name="projectDesc" type="text">
+</div>
+<button class="project-button" type="button">+ Projects</button>
+
+<button class="work_reveal prev" type="button">&leftarrow;Previous</button>
+
+<button class="skl_reveal next" type="button">Next&rightarrow;</button>
+</div>
+</div>
+<div class="skl_rev">
+  <div class="ess-info skl rev">
+     <h4>Skills</h4>
+    <hr>
+    <div class="ts">
+    <label class="form-label" for="skills">Technical Skills:</label>
+    <input class="form-control res-inp skills skills0" id="skills" name="skills" type="text">
+    <button class="tech-button" type="button">+ Technical Skills</button>
+    <br><br>
+    </div>
+    
+    <br>
+    <div class="soft">
+        <label for="softSkills0">Soft Skills:</label>
+    <input id="softSkills0" class="form-control res-inp softSkills softSkills0 " name="softSkills" type="text">
+    <button class="soft-button" type="button">+ Soft-Skills</button>
+    <br><br>
+    </div>
+     <br>
+    <div class="lan">
+          <label for="languages0">Languages:</label>
+    <input id="languages0" class="form-control res-inp languages languages0" name="languages" type="text">
+    <button class="lan-button" type="button">+ Languages</button>
+    <br><br>
+    </div>
+</div>
+
+<div class="ess-info skl rev">
+     <h4>Additional Information</h4>
+    <hr>
+    <div class="HI">
+        <label for="hobbies0">Hobbies & Interest:</label>
+    <input id="hobbies0" class="form-control res-inp hobbies hobbies0" name="hobbies" type="text">
+    <button class="hobby-button" type="button">+ Hobbies</button>
+    <br><br>
+    </div>
+    <div class="vol">
+          <label for="volunteer0">Volunteer Experiences:</label>
+    <input id="volunteer0" class="form-control res-inp volunteer volunteer0 " name="volunteer" type="text">
+    <button class="vol-button" type="button">+ volunteer Experience</button>
+    <br><br>
+    <button class="project_reveal prev" type="button">&leftarrow;Previous</button>
+    </div>
+</div>
+</div>
+
+<button class="folio-btn pdfBtn" type="button"   id="pdfBtn">Generate pdf</button>
+</form>
+    
+</div>
+<div class="Live">
+  <br>
+  <h4>Live Preview</h4>
+  <div id="template-div">
+<label id="template" for="Templates"><h3>Select Templates:-</h3>
+<select name="Template" id="formid" class="Templates" form="formid">
+<option value="template" selected>Select Template</option>
+<option value="Modern">Modern</option>
+<option value="Traditional">Traditional</option>
+</select>
+    </label>
+  </div>
+  <div class="message" style="display: none;">
+    <h1 class="message-1">Select Templates To Generate Live-Preview</h1>
+    <!-- <img class="magic-wand" src="https://res.cloudinary.com/dgisdx4tu/image/upload/v1768744978/glb2_pwluk6.jpg">   -->
+     
+  </div>
+   <div class="prev-inf" style = "display:none ; ">
+      <div id="name!" class="center"></div>
+      <div id="job!" class="center"></div>
+       <div class="ph-em center">
+      <span id="email!" style="text-align: center;"></span>
+      <span id="phone!" style="text-align: center;"></span>
+    </div>
+
+     <div class="link-Address center">
+      <span id="linkedIn!" style="text-align: center;"></span>
+       <span id="address!" style="text-align: center;"></span>
+    </div>
+<div id="website!" class="center"></div>
+<div id="summary!"></div>
+<div class="education!">
+ <div class="education_heading" style="display:none;padding-left:10px"><h2><b>Education</b></h2><hr class="sumhr"></div>
+<div class="edu0">
+<!--  <h3><b style="font-size:40px;">Education</b></h3><hr class="sumhr" > -->
+<div class="Degree0!"></div> 
+ <div class="institution0!"></div>
+<div class="ed-sd">
+  <span class="eduSD0!"></span><span class="eduED0!"> </span>   
+</div>
+</div>
+</div>
+
+<div class="working!">
+ <div class="work_heading" style="display:none;padding-left:10px"><h2><b>Experience</b></h2><hr class="sumhr"></div>
+  <div class="worky0">
+  <div class="workJob0!"></div> 
+ <div class="company0!"></div>
+ <div class="ed-sd">
+  <span class="workSD0!"></span><span class="workED0!"></span>   
+</div>
+<div class="workdesc0!"></div>
+</div>
+</div>
+
+<div class="projecting!">
+ <div class="project_heading" style="display:none;padding-left:10px"><h2><b>Projects</b></h2><hr class="sumhr"></div>
+  <div class="projecty0">
+    <div class="project_name0!"></div> 
+ <div class="tech0!"></div>
+ <div class="projecturl0!"></div>
+<div class="projectdesc0!"></div>
+  </div>
+  </div>
+
+  <div class="tsk!">
+    <div class="tsk_heading"style="display:none;padding-left:10px"><h2><b>Technical Skills</b></h2><hr class="sumhr"></div>
+    <div class="skills0!"></div>
+  </div>
+
+ <div class="soft!">
+    <div class="softSkills_heading"style="display:none;padding-left:10px"><h2><b>Soft-Skills Skills</b></h2><hr class="sumhr"></div>
+    <div class="softSkills0!"></div>
+  </div>
+
+ <div class="lan!">
+    <div class="lan_heading"style="display:none;padding-left:10px"><h2><b>Languages</b></h2><hr class="sumhr"></div>
+    <div class="languages0!"></div>
+  </div>
+
+   <div class="hobby!">
+    <div class="hob_heading"style="display:none;padding-left:10px"><h2><b>Hobbies</b></h2><hr class="sumhr"></div>
+    <div class="hobbies0!"></div>
+  </div>
+
+   <div class="vol!">
+    <div class="vol_heading"style="display:none;padding-left:10px"><h2><b>Volunteer</b></h2><hr class="sumhr"></div>
+    <div class="volunteer0!"></div>
+  </div>
+
+    </div>    
+<div class="prev-inf2" id="resume">
+<div class="lr">
+  <div class="left">
+    <div class="left-inside">
+      <div id="address!!"></div>
+      <div id="phone!!"></div>
+      <div id="email!!"></div>
+      <div id="website!!"></div>
+      <div id="linkedIn!!"></div>
+
+
+      <div class="education!!">
+        <div class="education_heading! headings" ><h2><i class="fa-solid fa-graduation-cap fa"></i><b>Education</b></h2></div>
+        <div class="edu!0">
+        <div class="Degree0!!"></div> 
+        <div class="institution0!!"></div>
+        <div class="ed-sd">
+          <span class="eduSD0!!"></span><span class="eduED0!!"> </span>   
+        </div>
+      </div>
+    </div>
+
+    <div class="tsk!!">
+      <div class="tsk_heading! headings"><h2><i class="fa-solid fa-code fa"></i><b>Technical Skills</b></h2></div>
+      <div class="skills0!!"></div>
+    </div>
+
+    <div class="soft!!">
+      <div class="softSkills_heading! headings"><h2><i class="fa-regular fa-handshake fa"></i><b>Soft-Skills</b></h2></div>
+      <div class="softSkills0!!"></div>
+    </div>
+
+
+  </div>
+</div>
+  <div class="right">
+    <div id="name!!"></div>
+    <div id="job!!" style="color:blue;"></div>
+    <br>
+   <div class="ph-ed">
+     <span id="phone!!1"></span>
+    <span id="email!!1"></span>
+   </div>
+    <div class="em-link">
+      <span id="website!!1"></span>
+    <span id="linkedIn!!1"></span>
+    </div>
+    <br>
+    <div><h3 class="summary_heading! headings" style="display: none;"><i class="fa-regular fa-id-badge fa"></i><b>Profile</b></h3>
+    <p class="summary!!"></p>
+    </div>
+<br>
+<div class="working!!">
+ <div class="work_heading! headings" style="display:none;padding-left:10px"><h2><i class="fa-solid fa-briefcase fa"></i><b>Experience</b></h2></div>
+  <div class="worky!0">
+  <div class="workJob0!!"></div> 
+ <div class="company0!!"></div>
+ <div class="ed-sd">
+  <span class="workSD0!!"></span><span class="workED0!"></span>   
+</div>
+<div class="workdesc0!!"></div>
+</div>
+</div>
+
+<div class="projecting!!">
+ <div class="project_heading! headings" style="display:none;padding-left:10px"><h2><i class="fa-solid fa-rocket fa"></i><b>Projects</b></h2></div>
+  <div class="projecty!0">
+    <div class="project_name0!!"></div> 
+ <div class="tech0!!"></div>
+ <div class="projecturl0!!"></div>
+<div class="projectdesc0!!"></div>
+  </div>
+  </div>
+
+<div class="lan-vol-hob" style="display:flex;flex-wrap:nowrap; ">
+<div class="lan!!">
+    <div class="lan_heading! headings"style="display:none;padding-left:10px;margin-right:15px;"><h2><i class="fa-solid fa-language fa"></i><b>Languages</b></h2></div>
+    <div class="languages0!!"></div>
+  </div>
+
+  <div class="hobby!!">
+    <div class="hob_heading! headings"style="display:none;padding-left:10px;margin-right:15px;"><h2><i class="fa-solid fa-basketball fa"></i><b>Hobbies</b></h2></div>
+    <div class="hobbies0!!"></div>
+  </div>
+
+   <div class="vol!!">
+    <div class="vol_heading! headings"style="display:none;padding-left:10px;margin-right:15px;"><h2><i class="fa-solid fa-chart-line fa"></i><b>Volunteer</b></h2></div>
+    <div class="volunteer0!!"></div>
+  </div>
+
+</div>
+
+  </div>
+</div>
+ </div>
+</div>
+</div>
+
+</div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.3/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="./static/js/essential.js" type="module"></script>
+ <script src="./static/js/navbar.js"></script>
+</body>
+</html>

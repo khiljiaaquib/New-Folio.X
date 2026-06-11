@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./static/css/plans.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="plans">
+     <h1 class="pf"> <sup class="pf"><i class="fa-solid fa-crown pf"></i></sup>Folio.X</h1>
+    <p class="pf pfhr">__________</p>
+    <p class=" pfp">Elevate your professional presence with our pro plan</p>
+    <br><br>
+    
+   <div class="card"> 
+    <div class="essential">
+        <div class="intro">
+<i class="fa-solid fa-gem ic"></i>
+<h4 class="ic ">Essential Tier</h4>
+<h4 class="ic">Rs.0.00/-</h4>     
+<p><i>always free</i></p></div>
+<div class="main-info info-ess">
+  <form action={{url_for('essential')}}>
+      <h6><i class="fa-solid fa-check"></i>Ordinary Resume</h6>
+    <h6><i class="fa-solid fa-check"></i>Standard pdf Export</h6>
+    <h6><i class="fa-solid fa-check"></i>Simpler Templates</h6>
+    <h6><i class="fa-solid fa-xmark"></i>Company Specific Resumes</h6>
+    <h6><i class="fa-solid fa-xmark"></i>ATS optimized Templates</h6>
+    <h6><i class="fa-solid fa-xmark"></i>ATS Assistant of Each Company</h6>
+    <h6><i class="fa-solid fa-xmark"></i>AI generated Summary</h6>
+    <button>Try Essential Tier</button>
+  </form>
+</div>
+</div>
+<div class="pro">
+   <div class="intro">
+<i class="fa-solid fa-crown icp"></i>
+<h4 class="icp ">Executive Tier</h4>
+<h4 class="icp">Rs.0.00/-<sub><del>299/-</del></sub></h4>     
+<p><i>PRO version</i></p></div>
+<div class="main-info info-pro">
+  <form action={{url_for('payment')}}>
+    <h6><i class="fa-solid fa-check"></i>AI Assistant ZYRA</h6>
+    <h6><i class="fa-solid fa-check"></i>Company Specific Resumes</h6>
+    <h6><i class="fa-solid fa-check"></i>AI generated summary</h6>
+    <h6><i class="fa-solid fa-check"></i>ATS Assistant of Each Companies</h6>
+    <h6><i class="fa-solid fa-check"></i>ATS optimized Templates </h6>
+   <h6><i class="fa-solid fa-check"></i>100+ Companies</h6>
+    <h6><i class="fa-solid fa-check"></i>Pdf Export</h6>
+    <button>Try Executive Tier</button>
+  </form>
+</div>
+</div></div>
+{%if value%}
+      <style>
+        .card{
+          filter: blur(20px) !important;
+        }
+        body{
+          overflow:hidden;
+        }
+      </style>
+      <div class="zyra">
+  <div ><i class="fa-solid fa-brain"></i></div>
+  <h3>Introducing Zyra</h3>
+  <h5>Your Personal AI assistant , integrated to elevate your resume to perfection Use voice commands , generate summaries , and get ATS optimized suggestion instantly</h5>
+<form method="" action={{url_for('executive')}}><button >begin</button></form>
+</div>
+{%endif%}
+</div>
+</body>
+ <script src="./static/js/block.js"></script>
+
+</html>

@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Resume Builder Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/header.css">
+  <link rel="stylesheet" href="./static/css/premium.css">
+  <style>
+:root {
+  --royal-gold-pure: #cda651;
+  --royal-gold-silk: #dfc17b;
+  --royal-gold-deep: #8c6f32;
+  --bg-free-slate: #0b111e;    
+  --card-free-dark: #090d16;    
+  --input-velvet: #131b2e;      
+  --text-platinum: #ffffff;
+  --text-muted: #64748b;
+  --luxury-ease: cubic-bezier(0.25, 1, 0.5, 1);
+}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,-25');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #030304;
+  background-image: 
+    radial-gradient(circle at 50% -30%, rgba(218, 165, 32, 0.15) 0%, transparent 55%),
+    radial-gradient(circle at 0% 100%, rgba(15, 15, 20, 0.9) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(218, 165, 32, 0.03) 0%, transparent 40%);
+  color: #f4f4f5;
+  min-height: 100vh;
+  padding: 80px 20px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 7px;
+  background: linear-gradient(90deg, #997d33 0%, #e2c775 25%, #fff3cd 50%, #e2c775 75%, #997d33 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shineGold 6s linear infinite;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e2c775, transparent);
+  margin: 18px auto 0 auto;
+  box-shadow: 0 1px 4px rgba(226, 199, 117, 0.4);
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 680px;
+  margin: 0 auto 64px auto;
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(15, 15, 18, 0.7) 0%, rgba(8, 8, 10, 0.9) 100%);
+  border: 1px solid rgba(226, 199, 117, 0.15);
+  border-radius: 100px; /* Fluid capsule aesthetic */
+  gap: 12px;
+  box-shadow: 
+    0 40px 80px -30px rgba(0, 0, 0, 0.9),
+    0 0 40px -10px rgba(218, 165, 32, 0.05) inset;
+}
+
+.progress .material-symbols-outlined {
+  font-size: 20px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+  color: #52525b;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progress .material-symbols-outlined.active,
+.progress .material-symbols-outlined:hover {
+  color: #fff3cd;
+  background: radial-gradient(circle at center, #997d33 0%, #66501a 100%);
+  border-color: #e2c775;
+  box-shadow: 
+    0 0 25px rgba(226, 199, 117, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.08) translateY(-2px);
+}
+
+.progress .space {
+  flex: 1;
+  height: 1px;
+  min-width: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: all 0.6s ease;
+}
+
+.progress .space.active {
+  background: linear-gradient(90deg, #66501a, #e2c775, #66501a);
+  box-shadow: 0 0 8px rgba(226, 199, 117, 0.3);
+}
+
+.step_section {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px) scale(0.99);
+}
+
+.step_section.nav_personal,
+.step_section[style*="display: block"],
+.step_section[style*="display:block"] {
+  display: block;
+  animation: luxuryReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.complete {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form_wrapper {
+  width: 100%;
+  max-width: 760px;
+}
+
+.section_card {
+  background: linear-gradient(180deg, #0b0b0e 0%, #060608 100%);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-top: 2px solid transparent; 
+  border-image: linear-gradient(90deg, transparent 15%, #997d33 35%, #e2c775 50%, #997d33 65%, transparent 85%) 1;
+  border-radius: 2px; /* Intentionally sharp, high-end architecture profile */
+  padding: 56px;
+  position: relative;
+  box-shadow: 
+    0 45px 90px -25px rgba(0, 0, 0, 0.95),
+    0 0 60px -20px rgba(226, 199, 117, 0.02);
+}
+
+.section_card h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.section_card hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(226, 199, 117, 0.2), transparent 80%);
+  margin: 20px 0 40px 0;
+}
+
+.form_group {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form_group label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #a1a1aa;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.form_control {
+  width: 100%;
+  padding: 16px 20px;
+  background: #030304;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 0; /* Pure premium clean geometry line format */
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form_control:focus {
+  outline: none;
+  border-color: #e2c775;
+  background: #08080b;
+  box-shadow: 0 15px 30px -10px rgba(226, 199, 117, 0.08);
+}
+
+.form_control::placeholder {
+  color: #27272a;
+}
+
+.form_row.dual_column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.form_row.split_layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 24px;
+}
+
+.dynamic_list_container {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(226, 199, 117, 0.1);
+  padding: 28px;
+  margin-top: 24px;
+  position: relative;
+}
+
+.dynamic_list_container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 4px; height: 100%;
+  background: linear-gradient(180deg, #e2c775, transparent);
+}
+
+.dynamic_list_container > label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #a1a1aa;
+  display: block;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.description_list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  animation: luxuryReveal 0.4s ease forwards;
+}
+
+button {
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn_dynamic_add {
+  background: transparent;
+  color: #e2c775;
+  border: 1px solid rgba(226, 199, 117, 0.2);
+  padding: 12px 20px;
+}
+
+.btn_dynamic_add:hover {
+  background: rgba(226, 199, 117, 0.03);
+  border-color: #e2c775;
+  box-shadow: 0 0 15px rgba(226, 199, 117, 0.1);
+}
+
+.button_group.action_nav, 
+.edu_button_group, .work_group_btn, .leadership_group_btn, .project_group_btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.edu_button_group .btn_dynamic_add,
+.work_group_btn .btn_dynamic_add,
+.leadership_group_btn .btn_dynamic_add,
+.project_group_btn .btn_dynamic_add {
+  margin-right: auto; /* Pin context appenders perfectly to the left */
+}
+
+.btn_next {
+  background: linear-gradient(135deg, #e2c775 0%, #b89b42 100%);
+  color: #030304;
+  border: none;
+  padding: 16px 36px;
+  box-shadow: 0 15px 35px -10px rgba(218, 165, 32, 0.35);
+}
+
+.btn_next:hover {
+  transform: translateX(4px);
+  box-shadow: 0 20px 40px -8px rgba(218, 165, 32, 0.45);
+}
+
+.btn_prev {
+  background: transparent;
+  color: #a1a1aa;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 16px 30px;
+}
+
+.btn_prev:hover {
+  border-color: rgba(226, 199, 117, 0.4);
+  color: #ffffff;
+  transform: translateX(-4px);
+}
+
+.submission_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  padding: 0 20px;
+}
+
+.pdf_trigger_btn {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: 1px solid #e2c775;
+  background: transparent;
+  color: #e2c775;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7);
+}
+
+.pdf_trigger_btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: all 0.6s ease;
+}
+
+.pdf_trigger_btn:hover {
+  background: #e2c775;
+  color: #030304;
+  transform: translateY(-3px);
+  box-shadow: 
+    0 30px 60px -12px rgba(218, 165, 32, 0.3),
+    0 0 30px rgba(226, 199, 117, 0.2);
+}
+
+.pdf_trigger_btn:hover::before {
+  left: 100%;
+}
+
+@keyframes luxuryReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shineGold {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@media (max-width: 768px) {
+  body { padding: 40px 16px; }
+  .section_card { padding: 36px 24px; }
+  .form_row.dual_column, .form_row.split_layout { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (max-width: 480px) {
+  .progress { padding: 16px; gap: 4px; }
+  .progress .material-symbols-outlined { font-size: 16px; padding: 10px; }
+  .edu_button_group, .work_group_btn, .leadership_group_btn, .project_group_btn { flex-direction: column-reverse; align-items: stretch; }
+  .edu_button_group .btn_dynamic_add, .work_group_btn .btn_dynamic_add, .leadership_group_btn .btn_dynamic_add, .project_group_btn .btn_dynamic_add { margin-right: 0; width: 100%; text-align: center; margin-top: 12px; }
+}
+
+.nav_edu,.work_experience_rev,.leadership_rev,.skills_additional_rev,.projects_rev{
+  display:none;
+}
+.education_header,.work_header,.leadership_header,.project_header,.additional_header{
+opacity:0;
+}
+
+.Live-preview {
+  flex: 1;
+  background: var(--input-velvet);
+  border: 1px solid var(--royal-gold-pure);
+  border-radius: 20px;
+  padding: 40px;
+  position: sticky;
+  top: 30px;
+  min-height: 600px;
+  max-height: 85vh;
+  max-width: 50vw;
+  overflow-y: auto;
+  /* overflow-x: hidden; Prevent content stretching */
+  box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+/* Perfected Inner Scrollbar */
+.Live-preview::-webkit-scrollbar {
+  width: 14px; /* Width thodi badhai taaki borders se spacing manage ho sake */
+}
+
+.Live-preview::-webkit-scrollbar-track {
+  background: transparent;
+  margin:20px 20px; /* Yeh margin scrollbar ko upar aur niche ke rounded corners (20px radius) se bahar nikalne se rokega */
+}
+
+.Live-preview::-webkit-scrollbar-thumb {
+  background-color: var(--text-muted);
+  border-radius: 10px;
+  /* Mask/Padding trick: Isse scrollbar box ke right border se thoda andar shift ho jayega */
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+.Live-preview::-webkit-scrollbar-thumb:hover {
+  background-color: var(--royal-gold-silk);
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+
+
+
+button {
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-btn);
+  position: relative;
+  overflow: hidden; 
+  transition: all 0.3s ease;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.511) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25px);
+}
+
+button:hover::after {
+  animation: flashEffect 1.5s ease-in-out;
+}
+
+@keyframes flashEffect {
+  100% { left: 150%; }
+}
+
+.submission_container {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.pdf_trigger_btn {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  color:black;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s var(--luxury-ease);
+}
+
+.pdf_trigger_btn:hover {
+  background-color: var(--royal-gold-silk);
+  transform: translateY(-2px);
+  color: white;
+  box-shadow: 0 25px 40px rgba(205, 166, 81, 0.25);
+}
+
+/* Description Lists Reset */
+.description_list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.description_list li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1150px) {
+  .complete {
+    flex-direction: column;
+  }
+  .Live-preview {
+    width: 100%;
+    position: static;
+    min-height: 400px;
+  }
+}
+
+
+
+
+
+
+.live-div{
+  background-color: white;
+}
+.wso-template-container {
+  max-width: 8.5in;      /* Standard US Letter Page Width */
+  min-height: 11in;     /* Standard US Letter Page Height */
+  padding: 0.5in;       /* Strict 0.5" Margins */
+  font-family: 'Times New Roman', Times, serif;
+  color: #000000;
+  line-height: 1.15;
+  background: #ffffff;  
+}
+.wso-section-header {
+  font-size: 11pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  padding-bottom: 2px;
+}
+.inline-hr{
+display:block;
+position: relative;
+left:100px;
+margin-left: 60px;
+bottom:10px;
+width:70%;
+max-width: 81%;
+z-index: -1;
+text-align: right;
+}
+.wso-body-text {
+  font-size: 10pt;
+  margin-bottom: 3px;
+}
+.fullname1{
+  font-size: 16pt;
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  width:80%;
+  overflow-wrap: break-word;
+  padding-bottom: 2px;
+}
+.address1{
+ position:absolute;
+ text-align: right;
+ right:8%;
+ width:190px;
+ top:31vh;
+overflow-wrap: break-word;
+color: black;
+display: block;
+padding-right:0.5in;
+}
+
+@media print {  
+    body.print-mode-active * {
+        visibility: hidden;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    .print-this-only, .print-this-only * {
+        visibility: visible !important;
+    }
+    .print-this-only {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0.5in;
+    }
+    .inline-hr{
+width:76%;
+}
+    .wso-section-header {
+  font-size: 11pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  padding-bottom: 2px;
+}
+.wso-template-container {
+
+  max-width: 8.5in;      
+  min-height: 11in;     
+  padding: 0.5in;       
+  font-family: 'Times New Roman', Times, serif;
+  color: #000000;
+  line-height: 1.15;
+  background: #ffffff;  
+}
+.fullname1{
+width:auto;
+  overflow-wrap: none;
+}
+.address1{
+ position:absolute;
+ right:0%;
+ width:160px;
+ text-align: right;
+ top:7.5vh;
+overflow-wrap: break-word;
+display: block;
+}
+    @page {
+        size: auto;   
+        margin: 0mm;  
+        padding: 0.5in;
+    }
+}
+
+.Live-preview{
+  border:10px groove rgb(164, 141, 84);
+border-radius: 50px;
+background: #fff !important;
+margin-left: 20px;
+}
+  </style>
+  <link rel="stylesheet" href="/static/css/zyra.css">
+  <link rel="stylesheet" href="./static/css/ATS.css">
+
+</head>
+<body>
+ <div class="premium-nav-container">
+    <header class="premium-navbar header1">
+      <a href={{url_for('about')}} class="logo">Folio<span>.X</span></a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href={{url_for('executive')}} class="">Select Companies</a></li>
+        <li class="nav-item"><a href={{url_for('features_pro')}}>Features</a></li>
+        <li class="nav-item"><a href={{portfolio}}>About US</a></li>
+        <li class="nav-item"><a href={{url_for('Logout')}}>Logout</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a class="btn-elite" style="padding: 10px 20px; font-size: 11px;" href={{url_for('essential')}}>Essential</a>
+      </div>
+    </header>
+     <header class="premium-navbar header2">
+      <a href="{{url_for('about')}}" class="logo">Folio<span>.X</span></a>
+      <span class="material-symbols-outlined hamburger">menu</span>
+    </header>
+    <div class="sbm displaysbm">
+<ul class="nav-menu" style="display:block;">
+        <li class="nav-item" ><a href={{url_for('executive')}} class="">Select Companies</a></li>
+        <li class="nav-item"><a href={{url_for('features_pro')}}>Features</a></li>
+        <li class="nav-item"><a href="{{portfolio}}">About US</a></li>
+        <li class="nav-item"><a href={{url_for('Logout')}} >Logout</a></li>
+      </ul>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a class="btn-elite" style="padding: 10px 20px; font-size: 11px;" href={{url_for('essential')}}>Essential</a>
+      </div>
+    </div>
+  </div>
+    <div class="ats">
+    <i class="fa-solid fa-eye ATS" id="open-ats-btn"></i>
+</div>
+
+<div class="ats-modal-overlay" id="atsModal">
+    <div class="ats-modal-content">
+        <div class="ats-modal-close">
+            <i class="fa-solid fa-circle-xmark" id="close-ats-btn"></i>
+        </div>
+      
+        <div class="ats-data-wrapper">
+            <div id="ats-loader" class="ats-loader">
+                <div class="spinner"></div>
+                <p>Analyzing your resume against the company standards...</p>
+            </div>
+            
+            <div id="ats-result" class="content hidden">
+
+            </div>
+        </div>
+    </div>
+</div>
+    <div class=""><i class="fa-solid fa-brain Zyra-AI"></i></div>
+ <form class="formAI" method="POST">
+  <div class="zyra-interface display">
+    <div class="xmark"><i class="fa-solid fa-xmark"></i></div>
+    <div class="zyra-header">
+        <div class="avatar"></div>
+        <h3>Hi, I'm <span>Zyra</span></h3>
+        <p>Your Personal AI Assistant</p>
+    </div>
+    <div class="zyra-output" id="chatOutput">
+        <div class="message bot">Hello! How can I help you today?</div>
+    </div>
+    <div class="zyra-input-wrapper">
+        <input type="text" placeholder="Ask Zyra anything..." name="question" id="userInput">
+        <button id="sendBtn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+        </button>
+    </div>
+  </form>
+</div>
+  <br>
+  <br>
+  <br>
+
+  <h1 style="text-align:center;">Build Your Resume</h1>
+<div class="progress">
+   <span class="material-symbols-outlined active" id="nav_personal">
+account_circle
+   </span>
+<span class="space PIspace"></span>
+<span class="material-symbols-outlined" id="nav_edu">
+school
+</span><span class="space EDspace"></span>
+<span class="material-symbols-outlined" id="nav_work">
+home_work
+</span>
+<span class="space WEspace"></span>
+<span class="material-symbols-outlined" id="nav_leadership">
+podium
+</span>
+<span class="space"></span>
+<span class="material-symbols-outlined" id="nav_projects">
+handyman
+</span>
+<span class="space PRspace"></span>
+<span class="material-symbols-outlined" id="nav_skills">
+sports_kabaddi
+</span>
+   </div>
+<div class="complete">
+  <div class="form_wrapper">
+    <form method="GET" action="/Executive" class="needs-validation resume_form" novalidate id="resumeForm">
+      
+      <!-- SECTION 1: Personal Information -->
+      <div class="personal_info_rev step_section nav_personal">
+        <div class="section_card">
+          <h4>Personal Information</h4>
+          <hr>
+          
+          <div class="form_group full_width">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="name" class="form_control res_input personal_field" required placeholder="Eg:-Mohd Aaquib Mohd Farooque Khilji">
+          </div>
+          
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="phone">Phone:</label>
+              <input type="number" id="phone" name="phone" class="form_control res_input personal_field" required placeholder="9270707xxxx">
+            </div>
+            <div class="form_group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" class="form_control res_input personal_field" required placeholder="Khiljiaaquib@xyz.com">
+            </div>
+          </div>
+          
+          <div class="form_group full_width">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" class="form_control res_input personal_field" required placeholder="Yavatmal Maharashtra India">
+          </div>
+          
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="linkedIn">LinkedIn:</label>
+              <input type="url" id="linkedIn" name="linkedIn" class="form_control res_input personal_field" required placeholder="Paste your linkedin URL:)">
+            </div>
+            <div class="form_group">
+              <label for="website">Website / Portfolio:</label>
+              <input type="url" id="website" name="website" class="form_control res_input personal_field" required placeholder="Paste your portfolio URL:)">
+            </div>
+          </div>
+          <div class="button_group action_nav">
+            <button type="button" class="btn_next nav_edu1 nav_personal1 1">Next &rightarrow;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Education Section -->
+      <div class="education_rev step_section nav_edu 1">
+        <div class="section_card">
+          <h4>Education</h4>
+           <hr>
+          
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="institution0">Institution:</label>
+              <input type="text" id="institution0" name="institution" class="form_control res_input education_field IN" placeholder="Sant gadge baba University">
+            </div>
+            <div class="form_group">
+              <label for="instCountry0">Institution Location:</label>
+              <input type="text" id="instCountry0" name="institution_country" class="form_control res_input education_field IC" placeholder="Amaravati Maharashtra India">
+            </div>
+          </div>
+          
+          <div class="form_row split_layout">
+            <div class="form_group main_field">
+              <label for="degree0">Degree:</label>
+              <input type="text" id="degree0" name="degree" class="form_control res_input education_field ID" placeholder="Btech Computer Engineering">
+            </div>
+            <div class="form_group date_field">
+              <label for="eduSD0">Start Date:</label>
+              <input type="text" id="eduSD0" name="eduSD" class="form_control res_input education_field ISD" placeholder="03/05/2024">
+            </div>
+            <div class="form_group date_field">
+              <label for="eduED0">End Date:</label>
+              <input type="text" id="eduED0" name="eduED" class="form_control res_input education_field IED" placeholder="-Present">
+            </div>
+          </div>
+          
+          <div class="dynamic_list_container">
+            <label>Description:</label>
+            <ul class="description_list education_desc_list EUL0">
+          
+            </ul>
+            <button type="button" class="btn_dynamic_add add_edu_desc add_edu_desc0">+ Description Point</button>
+          </div>
+          <br>
+          <div class="button_group action_nav edu_button_group">
+            <button type="button" class="btn_dynamic_add add_edu_section">+ Education Section</button>
+            <button type="button" class="btn_prev nav_personal1 nav_edu1 5">&leftarrow; Previous</button>
+            <button type="button" class="btn_next nav_work1 nav_edu1 2">Next &rightarrow;</button>
+          </div>
+        </div>
+      </div>
+      <!-- SECTION 3: Work Experience / Internships -->
+      <div class="work_experience_rev step_section nav_work 2">
+        <div class="section_card">
+          <h4>Work Experience or Internships</h4>
+          <hr>
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="company0">Company:</label>
+              <input type="text" id="company0" name="company" class="form_control res_input work_field comp" placeholder="Amazon">
+            </div>
+            <div class="form_group">
+              <label for="compCountry0">Company Location:</label>
+              <input type="text" id="compCountry0" name="company_country" class="form_control res_input work_field compcountry" placeholder="Hyderabad Telangana India">
+            </div>
+          </div>
+          
+          <div class="form_row split_layout">
+            <div class="form_group main_field">
+              <label for="workJob0">Job Title:</label>
+              <input type="text" id="workJob0" name="workJob" class="form_control res_input work_field compJob" placeholder="Software Engineer">
+            </div>
+            <div class="form_group date_field">
+              <label for="workSD0">Start Date:</label>
+              <input type="text" id="workSD0" name="workSD" class="form_control res_input work_field WSD" placeholder="03/05/2024">
+            </div>
+            <div class="form_group date_field">
+              <label for="workED0">End Date:</label>
+              <input type="text" id="workED0" name="workED" class="form_control res_input work_field WED" placeholder="-Present">
+            </div>
+          </div>
+          
+          <div class="dynamic_list_container">
+            <label>Description:</label>
+            <ul class="description_list work_desc_list WUL0">
+          
+            </ul>
+            <button type="button" class="btn_dynamic_add add_work_desc add_work_desc0">+ Description Point</button>
+          </div>
+            <br>
+          <div class="button_group action_nav work_group_btn">
+            <button type="button" class="btn_dynamic_add add_work_section">+ Work Section</button>
+            <button type="button" class="btn_prev nav_edu1 nav_work1 4">&leftarrow; Previous</button>
+            <button type="button" class="btn_next nav_leadership1 nav_work1 3">Next &rightarrow;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: Leadership Role -->
+      <div class="leadership_rev step_section nav_leadership 3">
+        <div class="section_card">
+          <h4>Leadership Roles</h4>
+          <hr>
+          
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="leadOrganization0">Organization / Company:</label>
+              <input type="text" id="leadOrganization0" name="leadership_org" class="form_control res_input leadership_field leadorg" placeholder="Eg:-Amazon">
+            </div>
+            <div class="form_group">
+              <label for="leadCountry0">Organization Location:</label>
+              <input type="text" id="leadCountry0" name="leadership_country" class="form_control res_input leadership_field leadcountry" placeholder="Hyderabad Telangana India">
+            </div>
+          </div>
+          
+          <div class="form_row split_layout">
+            <div class="form_group main_field">
+              <label for="leadRole0">Job Title / Role:</label>
+              <input type="text" id="leadRole0" name="leadership_role" class="form_control res_input leadership_field leadrole" placeholder="Software Engineer">
+            </div>
+            <div class="form_group date_field">
+              <label for="leadSD0">Start Date:</label>
+              <input type="text" id="leadSD0" name="leadership_sd" class="form_control res_input leadership_field LSD" placeholder="03/05/2024">
+            </div>
+            <div class="form_group date_field">
+              <label for="leadED0">End Date:</label>
+              <input type="text" id="leadED0" name="leadership_ed" class="form_control res_input leadership_field LED" placeholder="-present">
+            </div>
+          </div>
+          
+          <div class="dynamic_list_container">
+            <label>Description:</label>
+            <ul class="description_list leadership_desc_list LUL0">
+            
+            </ul>
+            <button type="button" class="btn_dynamic_add add_leadership_desc add_leadership_desc0">+ Description Point</button>
+          </div>
+          <br>
+          <div class="button_group action_nav leadership_group_btn">
+            <button type="button" class="btn_dynamic_add add_leadership_section">+ Leadership Section</button>
+            <button type="button" class="btn_prev nav_work1 nav_leadership1 3">&leftarrow; Previous</button>
+            <button type="button" class="btn_next nav_projects1 nav_leadership1 4">Next &rightarrow;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: Projects -->
+      <div class="projects_rev step_section nav_projects 4">
+        <div class="section_card">
+          <h4>Projects</h4>
+          <hr>
+          
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="projectName0">Project Name:</label>
+              <input type="text" id="projectName0" name="project_name" class="form_control res_input project_field pronamw" placeholder="AI Model">
+            </div>
+            <div class="form_group">
+              <label for="projectUrl0">Project URL:</label>
+              <input type="url" id="projectUrl0" name="project_url" class="form_control res_input project_field prourl" placeholder="Paste your project URL:)">
+            </div>
+          </div>
+          
+          <div class="form_group full_width">
+            <label for="projectTech0">Technologies Used:</label>
+            <input type="text" id="projectTech0" name="project_tech" class="form_control res_input project_field protech" placeholder="e.g. React, Node.js, Three.js " >
+          </div>
+          
+          <div class="dynamic_list_container">
+            <label>Description:</label>
+            <ul class="description_list project_desc_list PUL0">
+             
+            </ul>
+            <button type="button" class="btn_dynamic_add add_project_desc add_project_desc0">+ Project Description</button>
+          </div>
+          <br>
+          <div class="button_group action_nav project_group_btn">
+            <button type="button" class="btn_dynamic_add add_project_section">+ Project Section</button>
+            <button type="button" class="btn_prev nav_leadership1 nav_projects1 2">&leftarrow; Previous</button>
+            <button type="button" class="btn_next nav_skills1 nav_projects1 5">Next &rightarrow;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 6: Skills & Additional Information -->
+      <div class="skills_additional_rev step_section nav_skills 5">
+        <div class="section_card">
+          <h4>Skills & Core Competencies</h4>
+          <hr>
+          
+          <div class="form_group dynamic_tag_group">
+            <label for="technicalSkills">Technical Skills:</label>
+            <input type="text" id="technicalSkills" name="technical_skills" class="form_control res_input additional_field" placeholder="e.g. JavaScript, Python, LaTeX">
+          </div>
+          
+          <div class="form_group dynamic_tag_group">
+            <label for="softSkills">Soft Skills:</label>
+            <input type="text" id="softSkills" name="soft_skills" class="form_control res_input additional_field" placeholder="Fluent English , good communication etc">
+          </div>
+          
+          <div class="form_group dynamic_tag_group">
+            <label for="languages">Languages:</label>
+            <input type="text" id="languages" name="languages" class="form_control res_input additional_field" placeholder="English , Hindi , Marathi etc">
+          </div>
+          
+          <br>
+          <h4>Additional Information</h4>
+          <hr>
+          
+          <div class="form_group dynamic_tag_group">
+            <label for="hobbies">Hobbies & Interests:</label>
+            <input type="text" id="hobbies" name="hobbies" class="form_control res_input additional_field" placeholder="Football cricket badminton">
+          </div>
+          
+          <div class="form_group dynamic_tag_group">
+            <label for="certifications">Certifications:</label>
+            <input type="text" id="certifications" name="certifications" class="form_control res_input additional_field" placeholder="AI certificate , MERN Stack Certificate etc">
+          </div>
+          
+          <div class="button_group action_nav">
+            <button type="button" class="btn_prev nav_projects1 nav_skills1 1">&leftarrow; Previous</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Trigger -->
+      <div class="submission_container">
+        <button type="button" id="generatePdfBtn" class="folio_primary_btn pdf_trigger_btn pdfBtn">Generate PDF Resume</button>
+      </div>
+
+    </form>    
+  </div>
+  <div class="Live-preview">
+  <h1 style="text-align: center;" class="live-heading">Live Preview</h1>
+  <br>
+  <div class="live-div wso-template-container">
+  <div class="fullname1" style="color: black;"></div>
+<div>
+  <span class="phone1 wso-body-text" ></span>
+  <span class="email1 wso-body-text"></span>
+  <div class="address1 wso-body-text" ></div>
+</div>
+  <div class="linkedin1 wso-body-text" ></div>
+  <div class="website1 wso-body-text" ></div>
+  <br>
+<hr style="display:none;border:1px solid black" class="hr1">
+
+<div class="education-live0 wso-body-text">
+<div class="wso-section-header education_header" ><span style="z-index: 2;">Education</span><hr class="inline-hr" style="z-index: 1;"></div>
+<div style="display: flex;justify-content:space-between;font-weight:800">
+  <div class="institution0" style="color:black;"></div>
+<div class="instCountry0"></div>
+</div>
+<div style="display: flex;justify-content:space-between;">
+  <div class="degree0"></div>
+<div style="display: flex;justify-content:end;">
+  <div class="eduSD0"></div>
+<div class="eduED0"></div>
+</div>
+</div>
+<ul id="EUL0" style="margin:0.8rem 0px;padding-left: 1.2rem;">
+</ul>
+</div>
+<div class="work-live0 wso-body-text">
+<div class="wso-section-header work_header" ><span style="z-index: 2;">Work Experience </span><hr class="inline-hr" style="z-index: 1;"></div>
+<div style="display: flex;justify-content:space-between;font-weight:800">
+<div class="company0" style="color:black;"></div>
+    <div class="compCountry0"></div>
+</div style="display: flex;justify-content:space-between;">
+   <div>
+     <div class="workJob0"></div>
+    <div style="display: flex;justify-content:end;">
+      <div class="workSD0"></div>
+    <div class="workED0"></div>
+    </div>
+   </div>
+    <ul id="WUL0" style="margin:0.8rem 0px;padding-left: 1.2rem;">
+    </ul>
+</div>
+<div class="leadership-live0 wso-body-text">
+<div class="wso-section-header leadership_header" ><span style="z-index: 2;">Leadership </span><hr class="inline-hr" style="z-index: 1;"></div>
+<div style="display: flex;justify-content:space-between;font-weight:800">
+  <div class="leadOrganization0" style="color:black;"></div>
+    <div class="leadCountry0"></div>
+</div>
+   <div style="display: flex;justify-content:space-between;">
+     <div class="leadRole0"></div>
+   <div style="display: flex;justify-content:end;">
+     <div class="leadSD0"></div>
+    <div class="leadED0"></div>
+   </div>
+   </div>
+    <ul id="LUL0" style="margin:0.8rem 0px;padding-left: 1.2rem;">
+    </ul>
+</div>
+<div class="projects-live0 wso-body-text">
+<div class="wso-section-header project_header" ><span style="z-index: 2;">projects </span><hr class="inline-hr" style="z-index: 1;"></div>
+ <div class="projectName0" style="font-weight:800"></div>
+    <div class="projectTech0"></div>
+    <a class="projectUrl0" href=""></a>
+    <ul id="PUL0" style="margin:0.8rem 0px;padding-left: 1.2rem;">
+    </ul>
+</div>
+<div class="skills-live0">
+<div class="wso-section-header additional_header" ><span style="z-index: 2;">Additional INFO </span><hr class="inline-hr" style="z-index: 1;"></div>
+<div class="technicalSkills"></div>
+<div class="softSkills"></div>
+<div class="languages"></div>
+<div class="hobbies"></div>
+<div class="certifications"></div>
+</div>
+</div>
+  <script>
+let name = document.querySelector(".fullname1")
+let email = document.querySelector(".email1")
+let phone = document.querySelector(".phone1")
+let address = document.querySelector(".address1")
+let website = document.querySelector(".website1")
+let linkedin = document.querySelector(".linkedin1")
+let hr = document.querySelector(".hr1");
+let nextbtns = document.querySelectorAll(".btn_next")
+let prevbtns = document.querySelectorAll(".btn_prev")
+let education_header = document.querySelector(".education_header")
+let work_header = document.querySelector(".work_header")
+let leadership_header = document.querySelector(".leadership_header")
+let project_header = document.querySelector(".project_header")
+let additional_header = document.querySelector(".additional_header")
+
+let institution = document.querySelector(".institution0");
+let institutionCountry = document.querySelector(".instCountry0")
+let degree = document.querySelector(".degree0")
+let ISD = document.querySelector(".eduSD0")
+let IED = document.querySelector(".eduED0")
+
+
+let form = document.querySelector(".resume_form")
+form.addEventListener("input",(e)=>{
+if(e.srcElement.id=="fullName"){
+    name.innerText = e.srcElement.value;}
+else if(e.srcElement.id=="phone"){
+   if(e.srcElement.value!=""){
+    phone.innerText = e.srcElement.value;
+    phone.innerHTML+="&nbsp;&nbsp;|&nbsp;&nbsp;";
+    }
+    else{
+        phone.innerHTML=""
+    }
+}
+else if(e.srcElement.id=="email"){
+email.innerText = e.srcElement.value;
+}
+else if(e.srcElement.id=="address"){
+address.innerText = e.srcElement.value;
+}
+else if(e.srcElement.id=="linkedIn"){
+linkedin.innerHTML= `<a href="${e.srcElement.value}">${e.srcElement.value.slice(0,e.srcElement.value.length-11)}</a>`;
+}
+else if(e.srcElement.id=="website"){
+     website.innerHTML = `<a href="${e.srcElement.value}">${e.srcElement.value}</a><br>`;
+}
+else if(e.srcElement.classList.contains("IN")){
+        document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+}
+else if(e.srcElement.classList.contains("IC")){
+        document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+    }
+else if(e.srcElement.classList.contains("ID")){
+               document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+    }
+    else if(e.srcElement.classList.contains("ISD")){
+             document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+    }else if(e.srcElement.classList.contains("IED")){
+               document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+    }
+else if(e.srcElement.classList.contains("edu_desc_input"))document.querySelector(`#${e.srcElement.classList[5]}`).innerText=e.srcElement.value;
+else if(e.srcElement.classList.contains("comp"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("compcountry"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("compJob"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("WSD"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("WED"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("work_desc_input"))document.querySelector(`#${e.srcElement.classList[5]}`).innerText=e.srcElement.value;
+else if(e.srcElement.classList.contains("leadorg"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("leadcountry"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("leadrole"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("LSD"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("LED"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value ; 
+else if(e.srcElement.classList.contains("leadership_desc_input"))document.querySelector(`#${e.srcElement.classList[5]}`).innerText=e.srcElement.value;
+else if(e.srcElement.classList.contains("pronamw"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value;
+else if(e.srcElement.classList.contains("prourl")){document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value; 
+document.querySelector(`.${e.srcElement.id}`).href=`${e.srcElement.value}`;
+}
+else if(e.srcElement.classList.contains("protech"))document.querySelector(`.${e.srcElement.id}`).innerText = e.srcElement.value; 
+else if(e.srcElement.classList.contains("project_desc_input"))document.querySelector(`#${e.srcElement.classList[5]}`).innerText = e.srcElement.value;   
+if(e.srcElement.id=="technicalSkills"){
+  if(e.srcElement.value){
+      document.querySelector(".technicalSkills").innerText=`Technical Skills:-${e.srcElement.value}`
+}
+else {
+      document.querySelector(".technicalSkills").innerText=""
+}  
+}
+else if(e.srcElement.id=="hobbies"){
+   if(e.srcElement.value){
+  document.querySelector(".hobbies").innerText=`Hobbies:-${e.srcElement.value}`
+}
+else {
+        document.querySelector(".hobbies").innerText=""
+} 
+}
+else if(e.srcElement.id=="languages"){
+if(e.srcElement.value){
+     document.querySelector(".languages").innerText=`Languages:-${e.srcElement.value}`
+}
+else {
+     document.querySelector(".languages").innerText=""
+}  
+}
+else if(e.srcElement.id=="softSkills"){
+if(e.srcElement.value){
+   document.querySelector(".softSkills").innerText=`Soft Skills:-${e.srcElement.value}`
+}
+else {
+    document.querySelector(".softSkills").innerText=""
+}
+}
+else if(e.srcElement.id=="certifications"){
+if(e.srcElement.value){
+  document.querySelector(".certifications").innerText=`Certifications:-${e.srcElement.value}`
+}
+else {
+  document.querySelector(".certifications").innerText=""
+}
+}
+});
+let pdfButton = document.querySelector(".pdfBtn");
+
+let pdfGenerate = async () => {
+    try {
+        
+        let previewElement;
+            previewElement = document.querySelector('.wso-template-container');
+      
+        if (!previewElement) {
+            alert('Cannot find Preview element.');
+            return;
+        }
+        document.body.classList.add('print-mode-active');
+        previewElement.classList.add('print-this-only');
+
+        window.print();
+ setTimeout(() => {
+            if (pdfButton && pdfButton.form) {
+                pdfButton.form.submit();
+            }
+        }, 1000);
+        document.body.classList.remove('print-mode-active');
+        previewElement.classList.remove('print-this-only');
+    } catch (error) {
+        console.error("PDF generation error:", error);
+        alert('Error in making pdf: ' + error.message);
+    }
+};
+pdfButton.addEventListener("click", pdfGenerate);
+
+let spaces  = document.querySelectorAll(".space");
+let counter = 1 ;
+nextbtns.forEach((nextbtn)=>{
+    nextbtn.addEventListener("click",()=>{
+        console.log(nextbtn);
+        document.querySelector(`.${ nextbtn.classList[1].slice(0,nextbtn.classList[1].length-1)}`).style.display = "block";
+        document.querySelector(`#${ nextbtn.classList[1].slice(0,nextbtn.classList[1].length-1)}`).classList.add("active");
+        
+        spaces.forEach((space)=>{
+          if(counter<=nextbtn.classList[3]){
+            space.classList.add("active");
+            counter++;
+          }
+          else{
+            space.classList.remove("active");
+            counter++;
+          }
+        })
+        counter = 1 ;
+        document.querySelector(`.${ nextbtn.classList[2].slice(0, nextbtn.classList[2].length-1)}`).style.display = "none";
+        document.querySelector(`#${ nextbtn.classList[2].slice(0, nextbtn.classList[2].length-1)}`).classList.remove("active");
+
+    })
+})
+let  counterPrev= 5 ;
+prevbtns.forEach((prevbtn)=>{
+    prevbtn.addEventListener("click",()=>{
+        console.log(prevbtn);
+        document.querySelector(`.${ prevbtn.classList[1].slice(0,prevbtn.classList[1].length-1)}`).style.display = "block";
+        document.querySelector(`#${ prevbtn.classList[1].slice(0,prevbtn.classList[1].length-1)}`).classList.add("active");
+spaces.forEach((space)=>{
+          if(counterPrev>prevbtn.classList[3]){
+            space.classList.add("active");
+            counterPrev--;
+          }
+          else{
+            space.classList.remove("active");
+            counterPrev--;
+          }
+        })
+        counterPrev = 5 ;
+        document.querySelector(`.${ prevbtn.classList[2].slice(0, prevbtn.classList[2].length-1)}`).style.display = "none";
+        document.querySelector(`#${ prevbtn.classList[2].slice(0, prevbtn.classList[2].length-1)}`).classList.remove("active");
+    })
+})
+let edu_counter = 1 ;
+// +EDUCATION BUTTON
+let plusEducationButton = document.querySelector(".add_edu_section")
+plusEducationButton.addEventListener("click",()=>{
+console.log("click");
+let new_edu  = document.createElement("div");
+  new_edu.classList.add("section_card");
+  new_edu.classList.add(`education_no${edu_counter}`);
+new_edu.innerHTML = `
+
+          <h4>Education</h4>
+          <hr>
+          
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="institution${edu_counter}">Institution:</label>
+              <input type="text" id="institution${edu_counter}" name="institution" class="form_control res_input education_field IN">
+            </div>
+            <div class="form_group">
+              <label for="instCountry${edu_counter}">Institution Location:</label>
+              <input type="text" id="instCountry${edu_counter}" name="institution_country" class="form_control res_input education_field IC">
+            </div>
+          </div>
+          
+          <div class="form_row split_layout">
+            <div class="form_group main_field">
+              <label for="degree${edu_counter}">Degree:</label>
+              <input type="text" id="degree${edu_counter}" name="degree" class="form_control res_input education_field ID">
+            </div>
+            <div class="form_group date_field">
+              <label for="eduSD${edu_counter}">Start Date:</label>
+              <input type="text" id="eduSD${edu_counter}" name="eduSD" class="form_control res_input education_field ISD" placeholder="03/05/2024">
+            </div>
+            <div class="form_group date_field">
+              <label for="eduED${edu_counter}">End Date:</label>
+              <input type="text" id="eduED${edu_counter}" name="eduED" class="form_control res_input education_field IED" placeholder="present">
+            </div>
+          </div>
+          
+          <div class="dynamic_list_container">
+            <label>Description:</label>
+            <ul class="description_list education_desc_list EUL${edu_counter}">
+             
+            </ul>
+            <button type="button" class="btn_dynamic_add add_edu_desc add_edu_desc${edu_counter}">+ Description Point</button>
+            <button type="button" class="btn_dynamic_add delete_edu_desc delete_edu_desc${edu_counter}">Delete Education</button>
+`;
+let new_br = document.createElement("br");
+document.querySelector(".edu_button_group").before(new_br);
+document.querySelector(".edu_button_group").before(new_edu);
+live_edu = document.createElement("div")
+live_edu.innerHTML = `
+<div style="display: flex;justify-content:space-between;font-weight:800">
+  <div class="institution${edu_counter}" style="color:black;"></div>
+<div class="instCountry${edu_counter}"></div>
+</div>
+<div style="display: flex;justify-content:space-between;">
+  <div class="degree${edu_counter}"></div>
+<div style="display: flex;justify-content:end;">
+  <div class="eduSD${edu_counter}"></div>
+<div class="eduED${edu_counter}"></div>
+</div>
+</div>
+<ul id="EUL${edu_counter}" style="margin:0.8rem 0px;padding-left: 1.2rem;">
+</ul>
+`
+live_edu.classList.add(`education-live${edu_counter}`);
+live_edu.classList.add("wso-body-text");
+document.querySelector(".work-live0").before(live_edu)
+edu_counter++;
+});
+
+// +EDUCATION DESCRIPTION
+let nav_edu = document.querySelector(".nav_edu")
+nav_edu.addEventListener("click",(e)=>{
+if(e.srcElement.classList.contains("add_edu_desc")){
+    let edu_counter_block_no = e.srcElement.classList[2].slice(12,e.srcElement.classList[2].length);
+    let ul = document.querySelector(`.EUL${edu_counter_block_no}`);
+    console.log(edu_counter_block_no,"...",ul.childElementCount);
+
+    let li = document.createElement("li")
+    li.innerHTML = `
+                <input type="text" class="form_control res_input desc_input education_desc_field edu_desc_input edu_desc_input${edu_counter_block_no}${ul.childElementCount}" placeholder="Please Describe About it...:)">
+     <div class="dynamic_tag_group">
+            <button type="button" class="btn_dynamic_add Delete_education_description Delete_education_description${edu_counter_block_no}${ul.childElementCount}">Delete Desc</button>
+            </div>
+    `;
+    li.className  = `list_of_edu_${edu_counter_block_no}${ul.childElementCount}`
+    ul.appendChild(li)
+    ul = document.querySelector(`#EUL${edu_counter_block_no}`);
+    li = document.createElement("li")
+    li.id = `edu_desc_input${edu_counter_block_no}${ul.childElementCount}`
+    ul.appendChild(li)
+    
+}
+
+});
+    
+
+// work
+let work_counter = 1;
+
+let plusWorkButton = document.querySelector(".add_work_section");
+plusWorkButton.addEventListener("click", () => {
+  let new_work = document.createElement("div");
+  new_work.classList.add("section_card");
+  new_work.classList.add(`work_no${work_counter}`);
+  new_work.innerHTML = `
+          <h4>Work Experience or Internships</h4>
+          <hr>
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="company${work_counter}">Company:</label>
+              <input type="text" id="company${work_counter}" name="company" class="form_control res_input work_field comp">
+            </div>
+            <div class="form_group">
+              <label for="compCountry${work_counter}">Company Location:</label>
+              <input type="text" id="compCountry${work_counter}" name="company_country" class="form_control res_input work_field compcountry">
+            </div>
+          </div>
+          
+          <div class="form_row split_layout">
+            <div class="form_group main_field">
+              <label for="workJob${work_counter}">Job Title:</label>
+              <input type="text" id="workJob${work_counter}" name="workJob" class="form_control res_input work_field workJob compJob">
+            </div>
+            <div class="form_group date_field">
+              <label for="workSD${work_counter}">Start Date:</label>
+              <input type="text" id="workSD${work_counter}" name="workSD" class="form_control res_input work_field WSD">
+            </div>
+            <div class="form_group date_field">
+              <label for="workED${work_counter}">End Date:</label>
+              <input type="text" id="workED${work_counter}" name="workED" class="form_control res_input work_field WED">
+            </div>
+          </div>
+          
+          <div class="dynamic_list_container">
+            <label>Description:</label>
+            <ul class="description_list work_desc_list WUL${work_counter}">
+            </ul>
+            <button type="button" class="btn_dynamic_add add_work_desc add_work_desc${work_counter}">+ Description Point</button>
+            <button type="button" class="btn_dynamic_add delete_work_desc delete_work_desc${work_counter}">Delete Work</button>
+
+          </div>
+  `;
+  let new_br = document.createElement("br");
+document.querySelector(".work_group_btn").before(new_br);
+  document.querySelector(".work_group_btn").before(new_work);
+
+  let live_work = document.createElement("div");
+  live_work.innerHTML = `
+    <div style="display: flex;justify-content:space-between;font-weight:800">
+<div class="company${work_counter}" style="color:black;"></div>
+    <div class="compCountry${work_counter}"></div>
+</div style="display: flex;justify-content:space-between;">
+   <div>
+     <div class="workJob${work_counter}"></div>
+    <div style="display: flex;justify-content:end;">
+      <div class="workSD${work_counter}"></div>
+    <div class="workED${work_counter}"></div>
+    </div>
+   </div>
+      <ul id="WUL${work_counter}" style="margin:0.8rem 0px;padding-left: 1.2rem;">
+    </ul>
+  `;
+  live_work.classList.add(`work-live${work_counter}`);
+live_work.classList.add("wso-body-text");
+
+ document.querySelector(".leadership-live0").before(live_work); 
+  work_counter++;
+});
+
+let nav_work = document.querySelector(".nav_work");
+nav_work.addEventListener("click", (e) => {
+  if (e.target.classList.contains("add_work_desc")) {
+    let work_counter_block_no = e.target.classList[2].slice(13, e.target.classList[2].length);
+    let ul = document.querySelector(`.WUL${work_counter_block_no}`);
+
+    let li = document.createElement("li");
+    console.log(ul.childElementCount);
+    
+    li.innerHTML = `
+      <input type="text" class="form_control res_input desc_input work_desc_field work_desc_input work_desc_input${work_counter_block_no}${ul.childElementCount}" placeholder="Please Describe About it...:)">
+   <div class="dynamic_tag_group">
+            <button type="button" class="btn_dynamic_add Delete_work_description Delete_work_description${work_counter_block_no}${ul.childElementCount}">Delete Desc</button>
+            </div>
+    `;
+    li.className  = `list_of_work_${work_counter_block_no}${ul.childElementCount}`
+    ul.appendChild(li);
+
+    ul = document.querySelector(`#WUL${work_counter_block_no}`);
+    li = document.createElement("li");
+    li.id = `work_desc_input${work_counter_block_no}${ul.childElementCount}`;
+    ul.appendChild(li);
+  }
+});
+
+// leadership
+let lead_counter = 1;
+
+let plusLeadershipButton = document.querySelector(".add_leadership_section");
+plusLeadershipButton.addEventListener("click", () => {
+  let new_leadership = document.createElement("div");
+  new_leadership.className = "section_card";
+  new_leadership.innerHTML = `
+          <h4>Leadership Roles</h4>
+          <hr>
+          
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="leadOrganization${lead_counter}">Organization / Company:</label>
+              <input type="text" id="leadOrganization${lead_counter}" name="leadership_org" class="form_control res_input leadership_field leadorg">
+            </div>
+            <div class="form_group">
+              <label for="leadCountry${lead_counter}">Organization Location:</label>
+              <input type="text" id="leadCountry${lead_counter}" name="leadership_country" class="form_control res_input leadership_field leadcountry">
+            </div>
+          </div>
+          
+          <div class="form_row split_layout">
+            <div class="form_group main_field">
+              <label for="leadRole${lead_counter}">Job Title / Role:</label>
+              <input type="text" id="leadRole${lead_counter}" name="leadership_role" class="form_control res_input leadership_field leadrole">
+            </div>
+            <div class="form_group date_field">
+              <label for="leadSD${lead_counter}">Start Date:</label>
+              <input type="text" id="leadSD${lead_counter}" name="leadership_sd" class="form_control res_input leadership_field LSD">
+            </div>
+            <div class="form_group date_field">
+              <label for="leadED${lead_counter}">End Date:</label>
+              <input type="text" id="leadED${lead_counter}" name="leadership_ed" class="form_control res_input leadership_field LED">
+            </div>
+          </div>
+          
+          <div class="dynamic_list_container">
+            <label>Description:</label>
+            <ul class="description_list leadership_desc_list LUL${lead_counter}">
+              
+            </ul>
+            <button type="button" class="btn_dynamic_add add_leadership_desc add_leadership_desc${lead_counter}">+ Description Point</button>
+            <button type="button" class="btn_dynamic_add delete_leadership_desc delete_leadership_desc${lead_counter}">Delete Leadership</button>
+          </div>
+  `;
+  document.querySelector(".leadership_group_btn").before(document.createElement("br"));
+  document.querySelector(".leadership_group_btn").before(new_leadership);
+
+  // Live preview template
+  let live_leadership = document.createElement("div");
+  live_leadership.innerHTML = `
+  <div style="display: flex;justify-content:space-between;font-weight:800">
+  <div class="leadOrganization${lead_counter}" style="color:black;"></div>
+    <div class="leadCountry${lead_counter}"></div>
+</div>
+   <div style="display: flex;justify-content:space-between;">
+     <div class="leadRole${lead_counter}"></div>
+   <div style="display: flex;justify-content:end;">
+     <div class="leadSD${lead_counter}"></div>
+    <div class="leadED${lead_counter}"></div>
+   </div>
+   </div>
+    <ul id="LUL${lead_counter}" style="margin:0.8rem 0px;padding-left: 1.2rem;">
+    </ul>
+  `;
+  live_leadership.classList.add(`leadership-live${lead_counter}`);
+  live_leadership.classList.add(`wso-body-text`);
+  document.querySelector(".projects-live0").before(live_leadership); 
+  lead_counter++;
+});
+
+let nav_leadership = document.querySelector(".nav_leadership");
+nav_leadership.addEventListener("click", (e) => {
+  if (e.target.classList.contains("add_leadership_desc")) {
+    let lead_counter_block_no = e.target.classList[2].slice(19, e.target.classList[2].length);
+    let ul = document.querySelector(`.LUL${lead_counter_block_no}`);
+
+    let li = document.createElement("li");
+    li.innerHTML = `
+      <input type="text" class="form_control res_input desc_input leadership_desc_field leadership_desc_input leadership_desc_input${lead_counter_block_no}${ul.childElementCount}" placeholder="Please Describe About it...:)">
+     <div class="dynamic_tag_group">
+            <button type="button" class="btn_dynamic_add Delete_leadership_description Delete_leadership_description${lead_counter_block_no}${ul.childElementCount}">Delete Desc</button>
+            </div>
+    `;
+    li.className  = `list_of_lead_${lead_counter_block_no}${ul.childElementCount}`
+    ul.appendChild(li);
+
+    ul = document.querySelector(`#LUL${lead_counter_block_no}`);
+    li = document.createElement("li");
+    li.id = `leadership_desc_input${lead_counter_block_no}${ul.childElementCount}`;
+    ul.appendChild(li);
+  }
+});
+//  projects
+let project_counter = 1;
+let plusProjectButton = document.querySelector(".add_project_section");
+plusProjectButton.addEventListener("click", () => {
+  let new_project = document.createElement("div");
+  new_project.classList.add("section_card");
+  new_project.classList.add(`project_no${project_counter}`)
+  new_project.innerHTML = `
+          <h4>Projects</h4>
+          <hr>
+          
+          <div class="form_row dual_column">
+            <div class="form_group">
+              <label for="projectName${project_counter}">Project Name:</label>
+              <input type="text" id="projectName${project_counter}" name="project_name" class="form_control res_input project_field pronamw">
+            </div>
+            <div class="form_group">
+              <label for="projectUrl${project_counter}">Project URL:</label>
+              <input type="url" id="projectUrl${project_counter}" name="project_url" class="form_control res_input project_field prourl">
+            </div>
+          </div>
+          
+          <div class="form_group full_width">
+            <label for="projectTech${project_counter}">Technologies Used:</label>
+            <input type="text" id="projectTech${project_counter}" name="project_tech" class="form_control res_input project_field protech" placeholder="e.g. React, Node.js, Three.js">
+          </div>
+          
+          <div class="dynamic_list_container">
+            <label>Description:</label>
+            <ul class="description_list project_desc_list PUL${project_counter}">
+             
+            </ul>
+            <button type="button" class="btn_dynamic_add add_project_desc add_project_desc${project_counter}">+ Project Description</button>
+            <button type="button" class="btn_dynamic_add delete_project_desc delete_project_desc${project_counter}">Delete Project</button>
+          </div>
+  `;
+  document.querySelector(".project_group_btn").before(document.createElement("br"));
+  document.querySelector(".project_group_btn").before(new_project);
+
+  let live_project = document.createElement("div");
+  live_project.innerHTML = `
+    <div class="projectName${project_counter}" style="font-weight:800"></div>
+    <div class="projectTech${project_counter}"></div>
+    <div class="projectUrl${project_counter}"></div>
+    <ul id="PUL${project_counter}" style="margin:0.8rem 0px;padding-left: 1.2rem;">
+    </ul>
+  `;
+  live_project.classList.add(`projects-live${project_counter}`);
+  live_project.classList.add(`wso-body-text`);
+  
+
+  document.querySelector(".skills-live0").before(live_project); 
+  
+  project_counter++;
+});
+
+let nav_projects = document.querySelector(".nav_projects");
+nav_projects.addEventListener("click", (e) => {
+  if (e.target.classList.contains("add_project_desc")) {
+    let project_counter_block_no = e.target.classList[2].slice(16, e.target.classList[2].length);
+    let ul = document.querySelector(`.PUL${project_counter_block_no}`);
+
+    let li = document.createElement("li");
+    li.innerHTML = `
+      <input type="text" class="form_control res_input desc_input project_desc_field project_desc_input project_desc_input${project_counter_block_no}${ul.childElementCount}" placeholder="Please Describe About it...:)">
+      <div class="dynamic_tag_group">
+            <button type="button" class="btn_dynamic_add Delete_project_description Delete_project_description${project_counter_block_no}${ul.childElementCount}">Delete Desc</button>
+            </div>
+    `;
+    li.className  = `list_of_pro_${project_counter_block_no}${ul.childElementCount}`
+    ul.appendChild(li);
+
+    ul = document.querySelector(`#PUL${project_counter_block_no}`);
+    li = document.createElement("li");
+    li.id = `project_desc_input${project_counter_block_no}${ul.childElementCount}`;
+    ul.appendChild(li);
+  }
+});
+
+document.querySelector(".complete").addEventListener("click",(e)=>{
+if(e.srcElement.classList.contains("delete_project_desc")){
+let block_no = e.srcElement.classList[2].slice("delete_project_desc".length,e.srcElement.classList[2].length)
+    document.querySelector(`.live-div`).removeChild(document.querySelector(`.projects-live${block_no}`));
+    document.querySelector(`.project_no${block_no}`).remove();
+}
+else if(e.srcElement.classList.contains("Delete_project_description")){
+  let section_card_no  = e.target.closest(".project_desc_list").classList[2].slice("PUL".length,e.target.closest(".project_desc_list").classList[2].length);
+   let description_no = e.srcElement.classList[2].slice((e.srcElement.classList[1]+section_card_no).length,e.srcElement.classList[2].length)
+document.querySelector(`.PUL${section_card_no}`).removeChild(document.querySelector(`.list_of_pro_${section_card_no}${description_no}`));
+document.querySelector(`#PUL${section_card_no}`).removeChild(document.querySelector(`#project_desc_input${section_card_no}${description_no}`));
+}
+else if(e.srcElement.classList.contains("delete_edu_desc")){
+let block_no = e.srcElement.classList[2].slice("delete_edu_desc".length,e.srcElement.classList[2].length)
+    document.querySelector(`.live-div`).removeChild(document.querySelector(`.education-live${block_no}`));
+    document.querySelector(`.education_no${block_no}`).remove();
+}
+else if(e.srcElement.classList.contains("Delete_education_description")){
+  let section_card_no  = e.target.closest(".education_desc_list").classList[2].slice("EUL".length,e.target.closest(".education_desc_list").classList[2].length);
+   let description_no = e.srcElement.classList[2].slice((e.srcElement.classList[1]+section_card_no).length,e.srcElement.classList[2].length)
+document.querySelector(`.EUL${section_card_no}`).removeChild(document.querySelector(`.list_of_edu_${section_card_no}${description_no}`));
+document.querySelector(`#EUL${section_card_no}`).removeChild(document.querySelector(`#edu_desc_input${section_card_no}${description_no}`));
+}
+else if(e.srcElement.classList.contains("delete_work_desc")){
+let block_no = e.srcElement.classList[2].slice("delete_work_desc".length,e.srcElement.classList[2].length)
+    document.querySelector(`.live-div`).removeChild(document.querySelector(`.work-live${block_no}`));
+    document.querySelector(`.work_no${block_no}`).remove();
+}
+else if(e.srcElement.classList.contains("Delete_work_description")){
+  let section_card_no  = e.target.closest(".work_desc_list").classList[2].slice("WUL".length,e.target.closest(".work_desc_list").classList[2].length);
+   let description_no = e.srcElement.classList[2].slice((e.srcElement.classList[1]+section_card_no).length,e.srcElement.classList[2].length)
+document.querySelector(`.WUL${section_card_no}`).removeChild(document.querySelector(`.list_of_work_${section_card_no}${description_no}`));
+document.querySelector(`#WUL${section_card_no}`).removeChild(document.querySelector(`#work_desc_input${section_card_no}${description_no}`));
+}
+else if(e.srcElement.classList.contains("delete_leadership_desc")){
+let block_no = e.srcElement.classList[2].slice("delete_leadership_desc".length,e.srcElement.classList[2].length)
+    document.querySelector(`.live-div`).removeChild(document.querySelector(`.leadership-live${block_no}`));
+    document.querySelector(`.leadership_no${block_no}`).remove();
+}
+else if(e.srcElement.classList.contains("Delete_leadership_description")){
+  let section_card_no  = e.target.closest(".leadership_desc_list").classList[2].slice("WUL".length,e.target.closest(".leadership_desc_list").classList[2].length);
+   let description_no = e.srcElement.classList[2].slice((e.srcElement.classList[1]+section_card_no).length,e.srcElement.classList[2].length)
+document.querySelector(`.LUL${section_card_no}`).removeChild(document.querySelector(`.list_of_lead_${section_card_no}${description_no}`));
+document.querySelector(`#LUL${section_card_no}`).removeChild(document.querySelector(`#leadership_desc_input${section_card_no}${description_no}`));
+}
+})
+
+let educationInputs = document.querySelectorAll(".education_field");
+educationInputs.forEach((educationInput)=>{
+educationInput.addEventListener("input",()=>{
+    let result = false ; 
+educationInputs.forEach((education)=>{
+    if(education.value!=""){
+        result = true ;
+    }
+});
+if(result==true)education_header.style.opacity=1;
+else education_header.style.opacity=0;
+})
+});
+
+let workInputs = document.querySelectorAll(".work_field");
+workInputs.forEach((workInput)=>{
+workInput.addEventListener("input",()=>{
+    let result = false ; 
+workInputs.forEach((work)=>{
+    if(work.value!=""){
+        result = true ;
+    }
+});
+if(result==true)work_header.style.opacity=1;
+else work_header.style.opacity=0;
+})
+});
+
+let leadershipInputs = document.querySelectorAll(".leadership_field");
+leadershipInputs.forEach((leadershipInput)=>{
+leadershipInput.addEventListener("input",()=>{
+    let result = false ; 
+leadershipInputs.forEach((leadership)=>{
+    if(leadership.value!=""){
+        result = true ;
+    }
+});
+if(result==true)leadership_header.style.opacity=1;
+else leadership_header.style.opacity=0;
+})
+});
+
+let projectInputs = document.querySelectorAll(".project_field");
+projectInputs.forEach((projectInput)=>{
+projectInput.addEventListener("input",()=>{
+    let result = false ; 
+projectInputs.forEach((project)=>{
+    if(project.value!=""){
+        result = true ;
+    }
+});
+if(result==true)project_header.style.opacity=1;
+else project_header.style.opacity=0;
+})
+});
+
+let additionalInputs = document.querySelectorAll(".additional_field");
+additionalInputs.forEach((additionalInput)=>{
+additionalInput.addEventListener("input",()=>{
+    let result = false ; 
+additionalInputs.forEach((additional)=>{
+    if(additional.value!=""){
+        result = true ;
+    }
+});
+if(result==true)additional_header.style.opacity=1;
+else additional_header.style.opacity=0;
+})
+});
+
+let personalInputs = document.querySelectorAll(".personal_field");
+personalInputs.forEach((personalInput)=>{
+personalInput.addEventListener("input",()=>{
+    let result = false ; 
+personalInputs.forEach((personal)=>{
+    if(personal.value!=""){
+        result = true ;
+    }
+});
+if(result==true)hr.style.display="block";
+else hr.style.display="none";
+})
+});
+  </script>
+  <script src="/static/js/zyra.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.9/axios.min.js"></script>
+<script>
+  let model = document.getElementById("atsModal");
+let openBtn = document.getElementById("open-ats-btn");
+let closeBtn = document.getElementById("close-ats-btn");
+let loader = document.getElementById("ats-loader");
+let resultDiv = document.getElementById("ats-result");
+
+  closeBtn.addEventListener("click", () => {
+    model.style.display = "none"; 
+    model.classList.remove("active");
+});
+let ats_btn = document.querySelector(".ATS");
+ats_btn.addEventListener("click", () => {
+    open_ATS();              
+    captureAndSendChunks();   
+});
+
+function open_ATS(){
+  model.style.display = "block";
+    model.classList.add("active");
+  loader.style.display = "block";
+}
+ async function captureAndSendChunks() {
+    let liveDiv = document.querySelector(".live-div");
+    if (!liveDiv) return alert("live-div नहीं मिला!");
+    try {
+        let canvas = await html2canvas(liveDiv, { useCORS: true, scale: 2 });
+        let fullBase64 = canvas.toDataURL("image/jpeg", 0.8);
+        let chunkSize = 50 * 1024; 
+        let totalChunks = Math.ceil(fullBase64.length / chunkSize);
+        let imageId = "img_" + Date.now(); 
+        console.log(`Total Chunks to send: ${totalChunks}`);
+        for (let i = 0; i < totalChunks; i++) {
+            let start = i * chunkSize;
+            let end = start + chunkSize;
+            let chunkData = fullBase64.slice(start, end);
+
+            console.log(`Sending chunk ${i + 1}/${totalChunks}...`);
+
+            let res = await fetch("/ATS", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    image_id: imageId,       
+                    chunk_index: i,          
+                    total_chunks: totalChunks, 
+                    image_chunk: chunkData   
+                })
+            });
+            let data = await res.json();
+            if (data.status === "completed") {
+                let resultDiv = document.getElementById("ats-result");
+                if (resultDiv) {
+                    resultDiv.innerHTML = data.response; 
+                    loader.style.display = "none";
+                    resultDiv.classList.remove("hidden")
+                } else {
+                   console.log(data.response);
+                }
+                return; 
+            }
+        }
+
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+
+</script>
+<script src="/static/js/navbar.js"></script>
+</body>
+</html>
