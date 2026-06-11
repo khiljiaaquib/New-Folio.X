@@ -55,21 +55,21 @@ signin.style.opacity = 1
 github_btn = document.querySelectorAll(".git_login")
 github_btn.forEach(git => {
     git.addEventListener("click", () => {
-    window.location.href = "http://127.0.0.1:5000/login/gitHub";
+    window.location.href = "https://folio-x.onrender.com/login/gitHub";
 });
 });
 
 microsoft_btn = document.querySelectorAll(".ms_login")
 microsoft_btn.forEach(microsoft => {
     microsoft.addEventListener("click", () => {
-    window.location.href = "http://127.0.0.1:5000/login/microsoft";
+    window.location.href = "https://folio-x.onrender.com/login/microsoft";
 });
 });
 
 google_btn = document.querySelectorAll(".google_login")
 google_btn.forEach(google => {
     google.addEventListener("click", () => {
-    window.location.href = "http://127.0.0.1:5000/login/google";
+    window.location.href = "https://folio-x.onrender.com/login/google";
 });
 });
 
