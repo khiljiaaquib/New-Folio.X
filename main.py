@@ -56,8 +56,9 @@ def essential():
 @app.route("/services", methods=["GET", "POST"])
 def services():
     session["ret"] = url_for("services")
-    
-    if request.method == "POST":
+    if request.method=="GET":
+        return render_template("plans.html")
+    elif request.method == "POST":
         if not session.get("login") or not session.get("user"):
             return jsonify({"error": "Please login first"}), 401
             
@@ -68,11 +69,8 @@ def services():
         if "user" in session:
             session["user"]["premium"] = True
         session.modified = True
-        return redirect(url_for("services"))  
-        
-    is_executive = session.get("Executive", False)
-    return render_template("plans.html", value=is_executive)
-
+        is_executive = session.get("Executive", False)
+        return render_template("plans.html", value=is_executive)
 # payments
 @app.route("/payment")
 def payment():
