@@ -489,5 +489,6 @@ When identifying weaknesses, focus only on weak wording, missing metrics, shallo
 def handle_all_errors(error):
     return render_template("error.html")
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host = "0.0.0.0",
+            port = int(os.environ.get("PORT",5000)))
     
